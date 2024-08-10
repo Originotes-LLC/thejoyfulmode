@@ -2,8 +2,9 @@ import "./globals.css";
 
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
+import { cn } from "@/lib/utils";
 
-const sora = Sora({ subsets: ["latin"] });
+const sora = Sora({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: "The Joyful Mode",
@@ -18,7 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={sora.className}>{children}</body>
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          sora.variable
+        )}
+      >
+        {children}
+      </body>
     </html>
   );
 }
