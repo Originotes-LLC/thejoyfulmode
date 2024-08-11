@@ -1,5 +1,6 @@
 import "./globals.css";
 
+import {HeaderNav} from "@/components/header-nav";
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
 import { cn } from "@/lib/utils";
@@ -25,6 +26,7 @@ export default function RootLayout({
           sora.variable
         )}
       >
+        <HeaderNav />
         {children}
       </body>
     </html>
