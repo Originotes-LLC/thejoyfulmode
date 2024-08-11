@@ -1,5 +1,7 @@
+import { CTA } from "./cta";
 import Image from "next/image";
-import SparklesText from "@/components/magicui/sparkles-text";
+
+//
 export function Hero() {
   return (
     <div
@@ -44,43 +46,10 @@ export function Hero() {
         </div>
       </div>
       {/* hero headline */}
-      <div className="font-bold pb-6 lg:pb-20 text-4xl lg:text-5xl tracking-tighter leading-9 lg:leading-[48px] xl:text-[64px] xl:leading-[64px]">
-        <h1>Ready to make your{` `}</h1>
-        <h1>
-          <span className="text-rose-800 inline-block">Law Firm</span> shine
-        </h1>
-        <h1>Brigther than a</h1>
-        <h1>
-          <SparklesText
-            className="text-4xl lg:text-5xl tracking-tighter leading-9 lg:leading-[48px] xl:text-[64px] xl:leading-[64px]"
-            text="SuperNova?"
-          />
-        </h1>
+      <div className="font-bold pb-6 lg:pb-20 text-4xl lg:text-5xl tracking-tighter leading-9 lg:leading-[48px] xl:text-[64px] xl:leading-[64px] lg:max-w-screen-sm">
+        <h1>We turn your website into a winning argument.</h1>
       </div>
-      {/* hero subheader */}
-      <div className="flex flex-col lg:flex-row justify-between items-start w-full pt-6 pb-12 lg:py-12 xl:pb-40 xl:pt-20">
-        <div className="max-w-[600px]">
-          {/* We are like the Michelangelo of pixels, but with more coffee and
-            fewer marble statues. */}
-          <h4 className="font-semibold text-xl tracking-tighter">
-            <span className="lg:block">
-              We build websites and marketing strategies{` `}
-            </span>
-            <span className="lg:block">
-              that <span className="text-rose-800">win cases</span> before
-              clients even pick up the phone.
-            </span>
-          </h4>
-        </div>
-        <div className="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
-          <a
-            href="#"
-            className="text-sm font-semibold leading-6 text-gray-900 space-x-2"
-          >
-            <span aria-hidden="true">&darr;</span>{` `}Find out how
-          </a>
-        </div>
-      </div>
+      <CTA />
     </div>
   );
 }
