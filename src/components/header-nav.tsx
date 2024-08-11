@@ -4,6 +4,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Dialog, DialogPanel } from "@headlessui/react";
 
 import Image from "next/image";
+import logo from "./v3.png";
 import { useState } from "react";
 
 const navigation = [
@@ -26,9 +27,10 @@ export function HeaderNav() {
           <a href="#" className="relative size-20">
             <span className="sr-only">The Joyful Mode</span>
             <Image
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               fill
               alt=""
-              src="/logo/v3.png"
+              src={logo}
               className="size-full object-cover rounded-full"
             />
           </a>
@@ -71,9 +73,10 @@ export function HeaderNav() {
             <a href="#" className="relative size-8 xl:size-12">
               <span className="sr-only">Your Company</span>
               <Image
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 fill
                 alt=""
-                src="/logo/v3.png"
+                src={logo}
                 className="size-full object-cover rounded-full"
               />
             </a>
