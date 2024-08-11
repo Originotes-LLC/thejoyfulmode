@@ -4,7 +4,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Dialog, DialogPanel } from "@headlessui/react";
 
 import Image from "next/image";
-import logo from "../../public/static/v3.png";
+import logo from "./v3.png";
 import { useState } from "react";
 
 const navigation = [
