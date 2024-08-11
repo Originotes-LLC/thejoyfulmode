@@ -45,10 +45,10 @@
   "typescript.suggest.paths": false,
   "editor.accessibilitySupport": "off",
   "debug.javascript.unmapMissingSources": true,
-  "files.autoSave": "afterDelay",
+  // "files.autoSave": "afterDelay",
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "explorer.compactFolders": false,
-  "workbench.statusBar.visible": false,
+  "workbench.statusBar.visible": true,
   // "editor.fontFamily": "'Monaspace Neon', monospace",
   "editor.fontSize": 14,
   "github.copilot.enable": {
