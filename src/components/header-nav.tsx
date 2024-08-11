@@ -23,12 +23,12 @@ export function HeaderNav() {
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="relative size-8 xl:size-12">
+          <a href="#" className="relative size-20">
             <span className="sr-only">The Joyful Mode</span>
             <Image
               fill
               alt=""
-              src="/logo_v7_color.png"
+              src="/logo/v3.png"
               className="size-full object-cover rounded-full"
             />
           </a>
@@ -73,7 +73,7 @@ export function HeaderNav() {
               <Image
                 fill
                 alt=""
-                src="/logo_v7_color.png"
+                src="/logo/v3.png"
                 className="size-full object-cover rounded-full"
               />
             </a>
