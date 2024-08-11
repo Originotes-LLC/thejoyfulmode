@@ -1,9 +1,9 @@
 "use client";
 
 import { CSSProperties, ReactElement, useEffect, useState } from "react";
-import { motion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 interface Sparkle {
   id: string;
@@ -106,7 +106,7 @@ const SparklesText: React.FC<SparklesTextProps> = ({
 
   return (
     <div
-      className={cn("text-6xl font-bold", className)}
+      className={cn("", className)}
       {...props}
       style={
         {
