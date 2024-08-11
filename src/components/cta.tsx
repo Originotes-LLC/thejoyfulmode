@@ -9,8 +9,8 @@ export function CTA() {
         {/* We are like the Michelangelo of pixels, but with more coffee and
           fewer marble statues. */}
         <h4 className="font-medium text-xl tracking-tighter">
-          Building websites and marketing strategies since 2020 so that your Law
-          Firm win cases before clients even pick up the phone.
+          Building websites and marketing strategies since 2020, so your law
+          firm wins cases before clients even pick up the phone.
         </h4>
       </div>
       <div className="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">

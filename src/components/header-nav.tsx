@@ -70,7 +70,7 @@ export function HeaderNav() {
         <div className="fixed inset-0 z-10" />
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <a href="#" className="relative size-8 xl:size-12">
+            <a href="#" className="relative size-20">
               <span className="sr-only">Your Company</span>
               <Image
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
