@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { PhoneIcon } from "@heroicons/react/24/outline";
-
 //
 export function CTA() {
   return (
@@ -14,10 +14,12 @@ export function CTA() {
         </h4>
       </div>
       <div className="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
-        <Button className="inline-flex items-center gap-x-2 bg-white px-3.5 py-2.5 text-sm lg:text-base font-medium text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-          <PhoneIcon aria-hidden="true" className="-ml-0.5 size-5" />
-          Schedule a call
-        </Button>
+        <Link href="/schedule-call">
+          <Button className="inline-flex items-center gap-x-2 bg-white px-3.5 py-2.5 text-sm lg:text-base font-medium text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+            <PhoneIcon aria-hidden="true" className="-ml-0.5 size-5" />
+            Schedule a call
+          </Button>
+        </Link>
       </div>
     </div>
   );
