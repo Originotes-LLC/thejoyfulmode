@@ -22,10 +22,12 @@ export async function saveLeadForm(prevState: any, formData: FormData) {
 
   if (parsed.success) {
     const result = await saveScheduleCallRecord(parsed);
+
     if (result.status !== 200) {
       return {
-        status: 500,
+        status: result.status,
         message: `${result.message}`,
+        issues: [],
       };
     }
 
@@ -34,8 +36,13 @@ export async function saveLeadForm(prevState: any, formData: FormData) {
   } else {
     return {
       status: 400,
-      message: "Invalid data. Please correct the following issues:",
-      issues: parsed.error.issues.map((issue) => issue.message),
+      message: "Invalid data. Please correct the errors and try again.",
+      issues: parsed.error.issues.map((issue) => {
+        return {
+          message: issue.message,
+          path: issue.path,
+        };
+      }),
     };
   }
 }

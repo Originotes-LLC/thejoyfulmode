@@ -68,7 +68,7 @@ export const schema = z
           ctx.addIssue({
             code: z.ZodIssueCode.custom,
             message:
-              "Please select at least one of the services you might be interested in or select 'Other' above.",
+              "Please select at least one of the services you might be interested in or select 'Other'.",
             path: ["seo"],
           });
 

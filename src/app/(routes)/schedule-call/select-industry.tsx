@@ -48,9 +48,18 @@ const typeOfPractice: TypeOfPractice[] = [
 export function SelectIndustry({
   form,
   errors,
+  state,
 }: {
   form: UseFormReturn<z.infer<typeof schema>>;
   errors: FieldErrors<z.infer<typeof schema>>;
+  state: {
+    status: number;
+    message: string;
+    issues: {
+      message: string;
+      path: (string | number)[];
+    }[];
+  } | null;
 }) {
   const [query, setQuery] = useState("");
   const [selectedpractice, setSelectedpractice] = useState<{
@@ -91,7 +100,10 @@ export function SelectIndustry({
       />
       <Label
         className={
-          errors?.areaOfPractice
+          errors?.areaOfPractice ||
+          state?.issues
+            .filter((issue) => issue.path[0] === "lastName")
+            .map((issue) => issue.message)[0]
             ? "block text-sm font-medium leading-6 text-red-500"
             : "block text-sm font-medium leading-6 text-gray-900"
         }
@@ -101,7 +113,14 @@ export function SelectIndustry({
       </Label>
       <div className="relative mt-2">
         <ComboboxInput
-          className="w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-black-600 sm:text-sm sm:leading-6"
+          className={
+            errors?.areaOfPractice ||
+            state?.issues
+              .filter((issue) => issue.path[0] === "lastName")
+              .map((issue) => issue.message)[0]
+              ? "w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-red-300 focus:ring-2 focus:ring-inset focus:ring-black-600 sm:text-sm sm:leading-6"
+              : "w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-black-600 sm:text-sm sm:leading-6"
+          }
           onChange={(event) => setQuery(event.target.value)}
           onBlur={() => setQuery("")}
           displayValue={(practice: TypeOfPractice) => practice?.name}
