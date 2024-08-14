@@ -26,15 +26,9 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 export function ScheduleCallForm() {
-  const [state, formAction] = useActionState(saveLeadForm, {
-    message: "",
-    issues: [],
-    status: 200,
-  });
-
   const { toast } = useToast();
+  const [state, formAction] = useActionState(saveLeadForm, null);
   const [isPending, startTransition] = useTransition();
-
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -54,14 +48,15 @@ export function ScheduleCallForm() {
 
   const formRef = useRef<HTMLFormElement>(null);
   const { errors } = form.formState;
-  const onSubmit = async () => {
+
+  const onSubmit = () => {
     startTransition(async () => {
       const result = await saveLeadForm("", new FormData(formRef.current!));
       if (result.status !== 200) {
         toast({
           variant: "destructive",
           title: "Uh oh! Something went wrong.",
-          description: state.message,
+          description: result.message,
           duration: 15000,
         });
       } else {
@@ -109,7 +104,17 @@ export function ScheduleCallForm() {
                       name="firstName"
                       render={({ field }) => (
                         <FormItem className="w-full">
-                          <FormLabel>
+                          <FormLabel
+                            className={
+                              state?.issues
+                                .filter(
+                                  (issue) => issue.path[0] === "firstName"
+                                )
+                                .map((issue) => issue.message)[0]
+                                ? "text-red-500"
+                                : ""
+                            }
+                          >
                             First Name{" "}
                             <span className="text-red-500 font-medium -mr-0.5 ml-1">
                               *
@@ -118,13 +123,33 @@ export function ScheduleCallForm() {
                           <FormControl>
                             <Input
                               type="text"
-                              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6"
+                              className={
+                                errors.firstName ||
+                                state?.issues
+                                  .filter(
+                                    (issue) => issue.path[0] === "firstName"
+                                  )
+                                  .map((issue) => issue.message)[0]
+                                  ? "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-red-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
+                                  : "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6"
+                              }
                               autoComplete="given-name"
-                              placeholder=""
+                              placeholder="John"
                               {...field}
                             />
                           </FormControl>
                           <FormMessage />
+                          {state && (
+                            <p className="mt-2 text-xs text-red-600">
+                              {
+                                state?.issues
+                                  .filter(
+                                    (issue) => issue.path[0] === "firstName"
+                                  )
+                                  .map((issue) => issue.message)[0]
+                              }
+                            </p>
+                          )}
                         </FormItem>
                       )}
                     />
@@ -133,7 +158,15 @@ export function ScheduleCallForm() {
                       name="lastName"
                       render={({ field }) => (
                         <FormItem className="w-full">
-                          <FormLabel>
+                          <FormLabel
+                            className={
+                              state?.issues
+                                .filter((issue) => issue.path[0] === "lastName")
+                                .map((issue) => issue.message)[0]
+                                ? "text-red-500"
+                                : ""
+                            }
+                          >
                             Last Name{" "}
                             <span className="text-red-500 font-medium -mr-0.5 ml-1">
                               *
@@ -142,13 +175,33 @@ export function ScheduleCallForm() {
                           <FormControl>
                             <Input
                               type="text"
-                              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6"
+                              className={
+                                errors.lastName ||
+                                state?.issues
+                                  .filter(
+                                    (issue) => issue.path[0] === "lastName"
+                                  )
+                                  .map((issue) => issue.message)[0]
+                                  ? "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-red-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
+                                  : "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6"
+                              }
                               autoComplete="family-name"
-                              placeholder=""
+                              placeholder="Doe"
                               {...field}
                             />
                           </FormControl>
                           <FormMessage />
+                          {state && (
+                            <p className="mt-2 text-xs text-red-600">
+                              {
+                                state?.issues
+                                  .filter(
+                                    (issue) => issue.path[0] === "lastName"
+                                  )
+                                  .map((issue) => issue.message)[0]
+                              }
+                            </p>
+                          )}
                         </FormItem>
                       )}
                     />
@@ -159,7 +212,15 @@ export function ScheduleCallForm() {
                         name="email"
                         render={({ field }) => (
                           <FormItem className="w-full">
-                            <FormLabel>
+                            <FormLabel
+                              className={
+                                state?.issues
+                                  .filter((issue) => issue.path[0] === "email")
+                                  .map((issue) => issue.message)[0]
+                                  ? "text-red-500"
+                                  : ""
+                              }
+                            >
                               Work Email{" "}
                               <span className="text-red-500 font-medium -mr-0.5 ml-1">
                                 *
@@ -168,13 +229,33 @@ export function ScheduleCallForm() {
                             <FormControl>
                               <Input
                                 type="email"
-                                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6"
+                                className={
+                                  errors.email ||
+                                  state?.issues
+                                    .filter(
+                                      (issue) => issue.path[0] === "lastName"
+                                    )
+                                    .map((issue) => issue.message)[0]
+                                    ? "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-red-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
+                                    : "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6"
+                                }
                                 autoComplete="email"
-                                placeholder=""
+                                placeholder="your-work-email@example.com"
                                 {...field}
                               />
                             </FormControl>
                             <FormMessage />
+                            {state && (
+                              <p className="mt-2 text-xs text-red-600">
+                                {
+                                  state?.issues
+                                    .filter(
+                                      (issue) => issue.path[0] === "email"
+                                    )
+                                    .map((issue) => issue.message)[0]
+                                }
+                              </p>
+                            )}
                           </FormItem>
                         )}
                       />
@@ -200,7 +281,7 @@ export function ScheduleCallForm() {
                                 pattern="^(\+)?[0-9\s]*$"
                                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6"
                                 autoComplete="tel"
-                                placeholder=""
+                                placeholder="595-555-5555"
                                 {...field}
                               />
                             </FormControl>
@@ -215,7 +296,17 @@ export function ScheduleCallForm() {
                         name="businessName"
                         render={({ field }) => (
                           <FormItem className="w-full">
-                            <FormLabel>
+                            <FormLabel
+                              className={
+                                state?.issues
+                                  .filter(
+                                    (issue) => issue.path[0] === "businessName"
+                                  )
+                                  .map((issue) => issue.message)[0]
+                                  ? "text-red-500"
+                                  : ""
+                              }
+                            >
                               Law Firm Name{" "}
                               <span className="text-xs">(or Company Name)</span>
                               <span className="text-red-500 font-medium -mr-0.5 ml-1">
@@ -225,29 +316,58 @@ export function ScheduleCallForm() {
                             <FormControl>
                               <Input
                                 type="text"
-                                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6"
-                                placeholder=""
+                                className={
+                                  errors.businessName ||
+                                  state?.issues
+                                    .filter(
+                                      (issue) =>
+                                        issue.path[0] === "businessName"
+                                    )
+                                    .map((issue) => issue.message)[0]
+                                    ? "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-red-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
+                                    : "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6"
+                                }
+                                placeholder="The Best Law Firm"
                                 {...field}
                               />
                             </FormControl>
                             <FormMessage />
+                            {state && (
+                              <p className="mt-2 text-xs text-red-600">
+                                {
+                                  state?.issues
+                                    .filter(
+                                      (issue) =>
+                                        issue.path[0] === "businessName"
+                                    )
+                                    .map((issue) => issue.message)[0]
+                                }
+                              </p>
+                            )}
                           </FormItem>
                         )}
                       />
                     </div>
                     {/* Area of Practice for Law Firms */}
                     <div className="sm:col-span-2">
-                      <SelectIndustry form={form} errors={errors} />
+                      <SelectIndustry
+                        form={form}
+                        errors={errors}
+                        state={state}
+                      />
                       <p
                         id="areaOfPractice"
                         className="mt-2 text-sm text-red-600"
                       >
-                        {errors.areaOfPractice?.message}
+                        {errors.areaOfPractice?.message ||
+                          state?.issues
+                            .filter((issue) => issue.path[0] === "businessName")
+                            .map((issue) => issue.message)[0]}
                       </p>
                     </div>
                     {/* Services We Offer */}
                     <div className="sm:col-span-2">
-                      <PickServices form={form} errors={errors} />
+                      <PickServices form={form} errors={errors} state={state} />
                     </div>
                     <div className="sm:col-span-2">
                       <FormField
@@ -255,7 +375,17 @@ export function ScheduleCallForm() {
                         name="helpMessage"
                         render={({ field }) => (
                           <FormItem className="w-full">
-                            <FormLabel>
+                            <FormLabel
+                              className={
+                                state?.issues
+                                  .filter(
+                                    (issue) => issue.path[0] === "helpMessage"
+                                  )
+                                  .map((issue) => issue.message)[0]
+                                  ? "text-red-500"
+                                  : ""
+                              }
+                            >
                               How can we help you?{" "}
                               <span className="text-red-500 font-medium -mr-0.5 ml-1">
                                 *
@@ -264,14 +394,35 @@ export function ScheduleCallForm() {
                             <FormControl>
                               <Textarea
                                 {...field}
+                                placeholder="Tell us about your project..."
                                 id="helpMessage"
                                 name="helpMessage"
                                 rows={4}
                                 aria-describedby="helpMessage-description"
-                                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6"
+                                className={
+                                  errors.helpMessage ||
+                                  state?.issues
+                                    .filter(
+                                      (issue) => issue.path[0] === "helpMessage"
+                                    )
+                                    .map((issue) => issue.message)[0]
+                                    ? "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-red-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
+                                    : "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6"
+                                }
                               />
                             </FormControl>
                             <FormMessage />
+                            {state && (
+                              <p className="mt-2 text-xs text-red-600">
+                                {
+                                  state?.issues
+                                    .filter(
+                                      (issue) => issue.path[0] === "helpMessage"
+                                    )
+                                    .map((issue) => issue.message)[0]
+                                }
+                              </p>
+                            )}
                           </FormItem>
                         )}
                       />

@@ -16,9 +16,18 @@ import { z } from "zod";
 export function PickServices({
   form,
   errors,
+  state,
 }: {
   form: UseFormReturn<z.infer<typeof schema>>;
   errors: FieldErrors<z.infer<typeof schema>>;
+  state: {
+    status: number;
+    message: string;
+    issues: {
+      message: string;
+      path: (string | number)[];
+    }[];
+  } | null;
 }) {
   // Callback version of watch.  It's your responsibility to unsubscribe when done.
   useEffect(() => {
@@ -38,18 +47,23 @@ export function PickServices({
         webDesignAndDevelopment ||
         marketing
       ) {
-        form.trigger();
+        if (state?.message !== "not submitted yet") {
+          form.trigger();
+        }
       }
     });
     return () => subscription.unsubscribe();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [form.watch]);
+  }, [form.watch, state?.message]);
 
   return (
     <div className="w-full" id="services">
       <h2
         className={
-          errors?.seo
+          errors?.seo ||
+          state?.issues
+            .filter((issue) => issue.path[0] === "seo")
+            .map((issue) => issue.message)[0]
             ? "text-base font-semibold leading-7 text-red-500"
             : "text-base font-semibold leading-7 text-gray-900"
         }
@@ -60,6 +74,15 @@ export function PickServices({
       <p className="mt-1 text-sm leading-6 text-gray-600">
         Choose what you need. Let&rsquo;s make your competitors sweat.
       </p>
+      {state && (
+        <p className="mt-2 text-xs text-red-600">
+          {
+            state.issues
+              .filter((issue) => issue.path[0] === "seo")
+              .map((issue) => issue.message)[0]
+          }
+        </p>
+      )}
 
       <div className="mt-10 space-y-10">
         <fieldset>
