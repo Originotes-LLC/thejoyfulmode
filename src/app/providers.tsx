@@ -12,7 +12,12 @@ if (typeof window !== "undefined") {
     capture_pageview: false, // Disable automatic pageview capture, as we capture manually
     capture_pageleave: true, // Enable pageleave capture
   });
+
+  if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+    posthog.opt_out_capturing();
+  }
 }
+
 export function CSPostHogProvider({ children }: { children: React.ReactNode }) {
   return <PostHogProvider client={posthog}>{children}</PostHogProvider>;
 }

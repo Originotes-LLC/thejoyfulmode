@@ -58,8 +58,7 @@ export function PickServices({
         <span className="text-red-500 font-medium -mr-0.5 ml-1">*</span>
       </h2>
       <p className="mt-1 text-sm leading-6 text-gray-600">
-        Select all that tickle your fancy—let&apos;s make your competitors
-        sweat.
+        Choose what you need. Let&rsquo;s make your competitors sweat.
       </p>
 
       <div className="mt-10 space-y-10">
@@ -100,8 +99,8 @@ export function PickServices({
                           errors?.seo ? "text-red-500" : "text-gray-500"
                         }
                       >
-                        Your website is your digital storefront. Let&apos;s make
-                        it shine.
+                        Your website is your digital storefront. Let&rsquo;s
+                        make it shine.
                       </FormDescription>
                     </div>
                   </div>
@@ -144,7 +143,7 @@ export function PickServices({
                           errors?.seo ? "text-red-500" : "text-gray-500"
                         }
                       >
-                        Get found online. We&apos;ll help you climb the ranks.
+                        Get found online. We&rsquo;ll help you climb the ranks.
                       </FormDescription>
                     </div>
                   </div>
@@ -229,7 +228,7 @@ export function PickServices({
                           errors?.seo ? "text-red-500" : "text-gray-500"
                         }
                       >
-                        Let&apos;s build a plan that works for you.
+                        Let&rsquo;s build a plan that works for you.
                       </FormDescription>
                     </div>
                   </div>

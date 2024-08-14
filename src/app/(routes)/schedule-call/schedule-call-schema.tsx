@@ -101,31 +101,3 @@ export const schema = z
 
     return data;
   });
-
-/*
-   // ctx.addIssue({
-          //   code: z.ZodIssueCode.custom,
-          //   message:
-          //     "Please select at least one of the services you might be interested in or select 'Other' above.",
-          //   path: ["seo"],
-          // });
-          // ctx.addIssue({
-          //   code: z.ZodIssueCode.custom,
-          //   message:
-          //     "Please select at least one of the services you might be interested in or select 'Other' above.",
-          //   path: ["ppc"],
-          // });
-          // ctx.addIssue({
-          //   code: z.ZodIssueCode.custom,
-          //   message:
-          //     "Please select at least one of the services you might be interested in or select 'Other' above.",
-          //   path: ["marketing"],
-          // });
-          // ctx.addIssue({
-          //   code: z.ZodIssueCode.custom,
-          //   message:
-          //     "Please select at least one of the services you might be interested in or select 'Other' above.",
-          //   path: ["webDesignAndDevelopment"],
-          // });
-  
-  */
