@@ -96,7 +96,7 @@ export function SelectIndustry({
             : "block text-sm font-medium leading-6 text-gray-900"
         }
       >
-        What&apos;s your main practice area?
+        Wha&rsquo;s your main practice area?
         <span className="text-red-500 font-medium -mr-0.5 ml-1">*</span>
       </Label>
       <div className="relative mt-2">

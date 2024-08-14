@@ -8,38 +8,32 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { useRef, useTransition } from "react";
 
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Input } from "@/components/ui/input";
+import { LoaderCircle } from "lucide-react";
 import { PickServices } from "./pick-services";
 import { SelectIndustry } from "./select-industry";
 import { Textarea } from "@/components/ui/textarea";
+import { saveLeadForm } from "./actions";
 import { schema } from "./schedule-call-schema";
+import { useActionState } from "react";
 import { useForm } from "react-hook-form";
-import { useFormState } from "react-dom";
-import { useRef } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-//
-export function ScheduleCallForm({
-  onFormAction,
-}: {
-  onFormAction: (
-    prevState: {
-      message: string;
-      issues?: string[];
-    },
-    data: FormData
-  ) => Promise<{
-    message: string;
-    issues?: string[];
-  }>;
-}) {
-  const [state, formAction] = useFormState(onFormAction, {
+export function ScheduleCallForm() {
+  const [state, formAction] = useActionState(saveLeadForm, {
     message: "",
+    issues: [],
+    status: 200,
   });
+
+  const { toast } = useToast();
+  const [isPending, startTransition] = useTransition();
 
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
@@ -60,6 +54,25 @@ export function ScheduleCallForm({
 
   const formRef = useRef<HTMLFormElement>(null);
   const { errors } = form.formState;
+  const onSubmit = async () => {
+    startTransition(async () => {
+      const result = await saveLeadForm("", new FormData(formRef.current!));
+      if (result.status !== 200) {
+        toast({
+          variant: "destructive",
+          title: "Uh oh! Something went wrong.",
+          description: state.message,
+          duration: 15000,
+        });
+      } else {
+        form.reset();
+        toast({
+          title: "Form submitted successfully",
+          description: "We'll be in touch soon!",
+        });
+      }
+    });
+  };
 
   return (
     <div className="relative overflow-hidden">
@@ -88,13 +101,7 @@ export function ScheduleCallForm({
                 <form
                   ref={formRef}
                   action={formAction}
-                  onSubmit={(evt) => {
-                    evt.preventDefault();
-                    form.handleSubmit(() => {
-                      const formDataForAction = new FormData(formRef.current!);
-                      return formAction(formDataForAction);
-                    })(evt);
-                  }}
+                  onSubmit={form.handleSubmit(onSubmit)}
                 >
                   <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                     <FormField
@@ -272,20 +279,28 @@ export function ScheduleCallForm({
                   </div>
                   <div className="mt-10 flex justify-end border-t border-gray-900/10 pt-8">
                     <Button
-                      className="rounded-md bg-emerald-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600"
+                      disabled={isPending}
+                      className={
+                        isPending
+                          ? "opacity-50 inline-flex items-center gap-x-2 rounded-md bg-emerald-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600"
+                          : "inline-flex items-center gap-x-2 rounded-md bg-emerald-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600"
+                      }
                       type="submit"
                     >
-                      Submit
+                      {isPending ? "Processing" : "Submit"}
+                      {isPending && (
+                        <LoaderCircle className="-mr-0.5 size-5 animate-spin" />
+                      )}
                     </Button>
                   </div>
                 </form>
               </Form>
               <p className="mt-6 text-gray-400 text-xs">
-                By sharing your number and clicking &apos;Submit,&apos;
-                you&apos;re agreeing to let us text you—responsibly, of course.
-                Standard &apos;you may incur charges&apos; rates apply. And if
-                you ever decide you&apos;ve had enough, just text STOP, and
-                we’ll gracefully exit stage left.
+                By sharing your number and clicking &lsquo;Submit,&rsquo;
+                you&rsquo;re agreeing to let us text you—responsibly, of course.
+                Standard &lsquo;you may incur charges&rsquo; rates apply. And if
+                you ever decide you&rsquo;ve had enough, just text STOP, and
+                we&rsquo;ll gracefully exit stage left.
               </p>
             </div>
           </div>

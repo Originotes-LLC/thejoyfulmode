@@ -4,6 +4,7 @@ import { CSPostHogProvider } from "./providers";
 import { HeaderNav } from "@/components/header-nav";
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
+import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
 import dynamic from "next/dynamic";
 
@@ -36,6 +37,7 @@ export default function RootLayout({
           <PostHogPageView />
           <HeaderNav />
           {children}
+          <Toaster />
         </body>
       </CSPostHogProvider>
     </html>
