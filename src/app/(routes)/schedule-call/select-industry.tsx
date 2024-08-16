@@ -124,6 +124,7 @@ export function SelectIndustry({
           onChange={(event) => setQuery(event.target.value)}
           onBlur={() => setQuery("")}
           displayValue={(practice: TypeOfPractice) => practice?.name}
+          placeholder="Select or type your practice area..."
         />
         <ComboboxButton className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
           <ChevronUpDownIcon

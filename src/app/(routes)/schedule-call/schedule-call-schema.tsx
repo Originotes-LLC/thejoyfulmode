@@ -1,4 +1,5 @@
 import { z } from "zod";
+
 const validPracticeAreas = [
   "Personal Injury",
   "Criminal Defense",
@@ -31,8 +32,12 @@ export const schema = z
     phone: z
       .string()
       .min(10, {
-        message: "Invalid phone number",
+        message: "The provided phone number is invalid. Check your input.",
       })
+      .regex(
+        /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/,
+        "The provided phone number is invalid. Check your input."
+      )
       .optional()
       .or(z.literal("")),
     helpMessage: z.string().trim().min(1, {
@@ -48,7 +53,6 @@ export const schema = z
         marketing: z.boolean().default(false),
         service_not_listed: z.boolean().default(false),
       })
-      .partial()
       .transform((data, ctx) => {
         const {
           service_not_listed,

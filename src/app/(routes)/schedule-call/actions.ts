@@ -1,8 +1,10 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+// import { revalidatePath } from "next/cache";
 import { saveScheduleCallRecord } from "@/lib/airtable-save-record";
 import { schema } from "@/app/(routes)/schedule-call/schedule-call-schema";
+import { verifyPhoneNumber } from "@/lib/twilio-verify-phone";
 
 export async function saveLeadForm(prevState: any, formData: FormData) {
   const parsed = await schema.safeParseAsync({
@@ -21,6 +23,40 @@ export async function saveLeadForm(prevState: any, formData: FormData) {
   });
 
   if (parsed.success) {
+    // verify phone number with Twilio first
+    const phone = parsed.data.phone;
+
+    if (phone) {
+      const res = await verifyPhoneNumber(phone);
+
+      if (res instanceof Error) {
+        return {
+          status: 400,
+          message: "We could not verify your phone number",
+          issues: [{ message: "Invalid phone number", path: ["phone"] }],
+        };
+      }
+      if (res.valid) {
+        const result = await saveScheduleCallRecord(parsed);
+
+        if (result.status !== 200) {
+          // if there was an error saving the record, return the error message
+          return {
+            status: result.status,
+            message: `${result.message}`,
+            issues: [],
+          };
+        }
+        redirect("/thank-you-for-contacting-us");
+      }
+      return {
+        status: 400,
+        message:
+          "We could not verify your phone number. Please provide a valid phone number",
+        issues: [{ message: "Invalid phone number", path: ["phone"] }],
+      };
+    }
+    // since phone number is not required, we can save the record without verifying it
     const result = await saveScheduleCallRecord(parsed);
 
     if (result.status !== 200) {
@@ -30,9 +66,7 @@ export async function saveLeadForm(prevState: any, formData: FormData) {
         issues: [],
       };
     }
-
-    revalidatePath("/schedule-call");
-    return { status: 200, message: "Form submitted successfully", issues: [] };
+    redirect("/thank-you-for-contacting-us");
   } else {
     return {
       status: 400,
