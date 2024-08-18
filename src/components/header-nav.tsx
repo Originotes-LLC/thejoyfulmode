@@ -146,22 +146,22 @@ export function HeaderNav() {
                 {products.map((item) => (
                   <div
                     key={item.name}
-                    className="group relative rounded-lg p-6 text-sm leading-6"
+                    className="group relative -mx-3 flex gap-6 rounded-lg p-3 text-sm leading-6 hover:bg-secondary sm:flex-col sm:p-6"
                   >
                     <div className="flex h-11 w-11 items-center justify-center rounded-lg">
                       <item.icon
                         aria-hidden="true"
-                        className="size-6 text-foreground group-hover:text-gray-600"
+                        className="size-6 text-foreground group-hover:text-background"
                       />
                     </div>
                     <Link
                       href={item.href}
-                      className="mt-6 block font-semibold text-foreground group-hover:text-gray-600"
+                      className="mt-6 block font-semibold text-foreground group-hover:text-background"
                     >
                       {item.name}
                       <span className="absolute inset-0" />
                     </Link>
-                    <p className="mt-1 text-foreground group-hover:text-gray-600">
+                    <p className="mt-1 text-foreground group-hover:text-background">
                       {item.description}
                     </p>
                   </div>
@@ -244,12 +244,12 @@ export function HeaderNav() {
                     <Link
                       key={item.name}
                       href={item.href}
-                      className="group -mx-3 flex items-center gap-x-6 rounded-lg p-3 text-base font-semibold leading-7 text-foreground group-hover:text-gray-600"
+                      className="group -mx-3 flex items-center gap-x-6 rounded-lg p-3 text-base font-semibold leading-7 text-foreground hover:bg-secondary hover:text-background"
                     >
-                      <div className="flex size-11 flex-none items-center justify-center rounded-lg">
+                      <div className="flex size-11 flex-none items-center justify-center rounded-lg group-hover:text-background">
                         <item.icon
                           aria-hidden="true"
-                          className="size-6 text-foreground group-hover:text-gray-600"
+                          className="size-6 text-foreground group-hover:text-background"
                         />
                       </div>
                       {item.name}

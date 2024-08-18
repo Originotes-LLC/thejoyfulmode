@@ -48,7 +48,7 @@ export function Hero() {
       {/* hero headline */}
       <div className="font-bold pb-6 lg:pb-20 text-4xl lg:text-5xl tracking-tighter leading-9 lg:leading-[48px] xl:text-[64px] xl:leading-[64px] lg:max-w-screen-sm">
         <h1 className="text-foreground">
-          Your Next Big Case
+          Hey 👋 Law Firm, Your Next Big Case
           <span className="text-accent"> Starts Here</span>.
         </h1>
       </div>

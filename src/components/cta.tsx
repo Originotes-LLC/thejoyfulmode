@@ -9,8 +9,9 @@ export function CTA() {
         {/* We are like the Michelangelo of pixels, but with more coffee and
           fewer marble statues. */}
         <h4 className="font-medium text-xl tracking-tighter text-foreground">
-          Expert SEO, Marketing, and Web Design & Development tailored for{" "}
-          <span className="text-accent font-semibold">Law Firms.</span>
+          Expert SEO, Marketing, Web Design & Development tailored for{" "}
+          <span className="text-accent font-semibold">Law Firms {` `}</span>that
+          want to be found, not forgotten.
         </h4>
       </div>
       <div className="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
