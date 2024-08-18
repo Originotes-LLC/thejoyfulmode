@@ -56,7 +56,7 @@ export function ScheduleCallForm() {
   useEffect(() => {
     // I'm doing this to clear the server errors when the phone number is changed, because when the phone is validated server side and it's invalid, the server will return an error message. If the user then changes the phone number, the server error will persist in React state until the form is submitted again.
     const subscription = form.watch((value, { name }) => {
-      if (name === "phone" && !value?.phone?.length) {
+      if (name === "phone") {
         setServerErrors(null);
       }
     });
@@ -119,10 +119,10 @@ export function ScheduleCallForm() {
       <div className="pb-24 pt-16 sm:pb-32 sm:pt-24 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:pt-32">
         <div className="px-6 lg:px-8">
           <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground">
               Let&rsquo;s Create Something Extraordinary Together.
             </h2>
-            <p className="mt-2 text-lg leading-8 text-gray-600">
+            <p className="mt-2 text-lg leading-8 text-foreground">
               We work with law firms that are all-in on growth, transparency,
               and top-tier digital strategies
             </p>
@@ -165,8 +165,8 @@ export function ScheduleCallForm() {
                                     (issue) => issue.path[0] === "firstName"
                                   )
                                   .map((issue) => issue.message)[0]
-                                  ? "text-base block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-red-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
-                                  : "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6 text-base"
+                                  ? "text-base block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-2 ring-inset ring-red-500 sm:text-sm sm:leading-6"
+                                  : "block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-foreground sm:text-sm sm:leading-6 text-base focus:bg-background"
                               }
                               autoComplete="given-name"
                               placeholder="John"
@@ -217,8 +217,8 @@ export function ScheduleCallForm() {
                                     (issue) => issue.path[0] === "lastName"
                                   )
                                   .map((issue) => issue.message)[0]
-                                  ? "text-base block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-red-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
-                                  : "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6 text-base "
+                                  ? "text-base block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-2 ring-inset ring-red-500 sm:text-sm sm:leading-6"
+                                  : "block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-foreground sm:text-sm sm:leading-6 text-base focus:bg-background"
                               }
                               autoComplete="family-name"
                               placeholder="Doe"
@@ -271,8 +271,8 @@ export function ScheduleCallForm() {
                                       (issue) => issue.path[0] === "lastName"
                                     )
                                     .map((issue) => issue.message)[0]
-                                    ? "text-base block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-red-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
-                                    : "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6 text-base "
+                                    ? "text-base block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-2 ring-inset ring-red-500 sm:text-sm sm:leading-6"
+                                    : "block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-foreground sm:text-sm sm:leading-6 text-base focus:bg-background"
                                 }
                                 autoComplete="email"
                                 placeholder="your-work-email@example.com"
@@ -301,42 +301,6 @@ export function ScheduleCallForm() {
                         name="phone"
                         serverErrors={serverErrors}
                       />
-                      {/* <FormField
-                        control={form.control}
-                        name="phone"
-                        render={({ field }) => (
-                          <FormItem className="w-full">
-                            <FormLabel
-                              className={serverErrors ? "text-red-500" : ""}
-                            >
-                              Phone Number{` `}
-                              <span id="phone-description" className="text-xs">
-                                (Optional)
-                              </span>
-                            </FormLabel>
-                            <FormControl>
-                              <Input
-                                type="text"
-                                pattern="^(\+)?[0-9\s]*$"
-                                className={
-                                  serverErrors
-                                    ? "block w-full rounded-md border-0 px-3.5 py-2 text-red-900 shadow-sm ring-1 ring-inset ring-red-300 placeholder:text-red-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
-                                    : "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6"
-                                }
-                                autoComplete="tel"
-                                placeholder="595-555-5555"
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                            {serverErrors && (
-                              <p className="mt-2 text-sm text-red-600">
-                                {serverErrors.message}
-                              </p>
-                            )}
-                          </FormItem>
-                        )}
-                      /> */}
                     </div>
                     <div className="sm:col-span-2">
                       <FormField
@@ -372,8 +336,8 @@ export function ScheduleCallForm() {
                                         issue.path[0] === "businessName"
                                     )
                                     .map((issue) => issue.message)[0]
-                                    ? "text-base block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-red-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
-                                    : "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6 text-base"
+                                    ? "text-base block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-2 ring-inset ring-red-500 sm:text-sm sm:leading-6"
+                                    : "block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-foreground sm:text-sm sm:leading-6 text-base focus:bg-background"
                                 }
                                 placeholder="The Best Law Firm"
                                 {...field}
@@ -454,8 +418,8 @@ export function ScheduleCallForm() {
                                       (issue) => issue.path[0] === "helpMessage"
                                     )
                                     .map((issue) => issue.message)[0]
-                                    ? "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-red-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
-                                    : "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6"
+                                    ? "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-red-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
+                                    : "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-foreground placeholder:text-secondary focus:ring-2 focus:ring-inset focus:ring-accent sm:text-sm sm:leading-6 focus:bg-background"
                                 }
                               />
                             </FormControl>
@@ -481,22 +445,22 @@ export function ScheduleCallForm() {
                       disabled={isPending}
                       className={
                         isPending
-                          ? "opacity-50 inline-flex items-center gap-x-2 rounded-md bg-emerald-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600"
-                          : "inline-flex items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600"
+                          ? "opacity-50 inline-flex items-center gap-x-2 rounded-md bg-secondary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
+                          : "bg-background inline-flex items-center gap-x-2 rounded-md px-3.5 py-2.5 text-sm font-semibold text-foreground shadow-sm hover:bg-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent hover:text-white"
                       }
                       type="submit"
                     >
-                      {isPending ? "Processing" : "Send message"}
+                      {isPending ? "Processing..." : "Send message"}
                       {isPending ? (
                         <LoaderCircle className="-mr-0.5 size-5 animate-spin" />
                       ) : (
-                        <Origami className="-mr-0.5 size-5 animate-pulse" />
+                        <Origami className="-mr-0.5 size-5" />
                       )}
                     </Button>
                   </div>
                 </form>
               </Form>
-              <p className="mt-6 text-gray-400 text-xs">
+              <p className="mt-6 text-foreground text-xs">
                 By sharing your number and clicking &lsquo;Submit,&rsquo;
                 you&rsquo;re agreeing to let us text you—responsibly, of course.
                 Standard &lsquo;you may incur charges&rsquo; rates apply. And if
