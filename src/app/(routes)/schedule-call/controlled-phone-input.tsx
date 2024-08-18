@@ -52,8 +52,8 @@ export const ControlledPhoneInput = (props: ControlledPhoneInputProps) => {
               type="text"
               className={
                 props.serverErrors
-                  ? "text-base block w-full rounded-md border-0 px-3.5 py-2 text-red-900 shadow-sm ring-1 ring-inset ring-red-300 placeholder:text-red-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
-                  : "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6 text-base"
+                  ? "text-base block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-2 ring-inset ring-red-500 sm:text-sm sm:leading-6"
+                  : "block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-foreground sm:text-sm sm:leading-6 text-base focus:bg-background"
               }
               autoComplete="tel"
               placeholder="(555) 555-5555"

@@ -8,16 +8,19 @@ export function CTA() {
       <div className="max-w-[600px]">
         {/* We are like the Michelangelo of pixels, but with more coffee and
           fewer marble statues. */}
-        <h4 className="font-medium text-xl tracking-tighter">
-          Building websites and marketing strategies since 2020, so your law
-          firm wins cases before clients even pick up the phone.
+        <h4 className="font-medium text-xl tracking-tighter text-foreground">
+          Expert SEO, Marketing, and Web Design & Development tailored for{" "}
+          <span className="text-accent font-semibold">Law Firms.</span>
         </h4>
       </div>
       <div className="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
-        <Link href="/schedule-call">
-          <Button className="inline-flex items-center gap-x-2 bg-white px-3.5 py-2.5 text-sm lg:text-base font-medium text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-            <PhoneIcon aria-hidden="true" className="-ml-0.5 size-5" />
-            Schedule a call
+        <Link className="group" href="/schedule-call">
+          <Button className="rounded-3xl inline-flex items-center gap-x-2 px-3.5 py-5 text-sm lg:text-base font-medium text-foreground shadow-sm ring-1 ring-inset ring-foreground group-hover:bg-accent group-hover:text-white group-hover:ring-accent">
+            <PhoneIcon
+              aria-hidden="true"
+              className="-ml-0.5 size-5 group-hover:text-white text-foreground"
+            />
+            Let&rsquo;s Talk
           </Button>
         </Link>
       </div>

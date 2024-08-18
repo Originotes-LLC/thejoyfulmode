@@ -118,8 +118,8 @@ export function SelectIndustry({
             state?.issues
               .filter((issue) => issue.path[0] === "lastName")
               .map((issue) => issue.message)[0]
-              ? "w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-red-300 focus:ring-2 focus:ring-inset focus:ring-black-600 sm:text-sm sm:leading-6"
-              : "w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-black-600 sm:text-sm sm:leading-6"
+              ? "w-full rounded-md border-0 py-1.5 pl-3 pr-10 shadow-sm ring-1 ring-inset ring-red-300 sm:text-sm sm:leading-6"
+              : "w-full rounded-md border-0 py-1.5 pl-3 pr-10 shadow-sm ring-1 ring-foreground sm:text-sm sm:leading-6 focus:bg-background bg-transparent"
           }
           onChange={(event) => setQuery(event.target.value)}
           onBlur={() => setQuery("")}
@@ -134,7 +134,7 @@ export function SelectIndustry({
         </ComboboxButton>
 
         {filteredPractice.length > 0 && (
-          <ComboboxOptions className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+          <ComboboxOptions className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm bg-white">
             {filteredPractice.map((practice) => (
               <ComboboxOption
                 key={practice.id}
