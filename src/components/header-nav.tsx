@@ -189,22 +189,22 @@ export function HeaderNav() {
             </PopoverPanel>
           </Popover>
           {company.map((item) => (
-            <a
+            <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-semibold leading-6 text-foreground"
+              className="text-sm font-semibold leading-6 p-0.5 text-foreground hover:text-accent hover:underline hover:decoration-1 hover:decoration-double"
             >
               {item.name}
-            </a>
+            </Link>
           ))}
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a
+          <Link
             href="#"
-            className="text-sm font-semibold leading-6 text-foreground"
+            className="text-sm font-semibold leading-6 text-foreground hover:text-accent hover:underline hover:decoration-1 hover:decoration-double"
           >
-            Log in <span aria-hidden="true">&rarr;</span>
-          </a>
+            Client Portal <span aria-hidden="true">&rarr;</span>
+          </Link>
         </div>
       </nav>
       <Dialog
@@ -268,12 +268,12 @@ export function HeaderNav() {
                   ))}
                 </div>
                 <div className="py-6">
-                  <a
+                  <Link
                     href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-foreground hover:text-accent hover:underline hover:decoration-1 hover:decoration-double"
                   >
-                    Log in
-                  </a>
+                    Client Portal
+                  </Link>
                 </div>
               </div>
             </div>
