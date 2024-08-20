@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+import { EmptyBlog } from "./empty-blog";
 import { NextImage } from "@/components/sanity-image";
 import { POSTS_QUERY } from "@/sanity/lib/queries";
 import { POSTS_QUERYResult } from "../../../../sanity.types";
@@ -9,9 +11,10 @@ export default async function Blog() {
     query: POSTS_QUERY,
     // revalidate: 60,
   });
-  // console.log("posts: ", posts);
 
-  return (
+  return !posts.length ? (
+    <EmptyBlog />
+  ) : (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:max-w-4xl">
