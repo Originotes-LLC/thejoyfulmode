@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   devIndicators: {
-    appIsrStatus: false,
+    appIsrStatus: true,
   },
   images: {
     remotePatterns: [
@@ -12,6 +12,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "tailwindui.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
       },
     ],
   },
