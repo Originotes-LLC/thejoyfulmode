@@ -89,7 +89,7 @@ const company = [
   },
   {
     name: "Brain Candy",
-    href: "#",
+    href: "/blog",
     description:
       "Read our latest announcements and get perspectives from our team",
   },
