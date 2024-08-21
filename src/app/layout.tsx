@@ -11,9 +11,9 @@ import dynamic from "next/dynamic";
 const sora = Sora({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "The Joyful Mode",
+  title: "The Joyful Mode - Expert Web Design, SEO & Marketing for Law Firms",
   description:
-    "A creative agency that specializes in branding, web design & development, and digital marketing",
+    "Transform your Law Firm's online presence with The Joyful Mode. Specializing in Web Design, SEO, and Marketing, we help lawyers attract more clients and stand out in the crowd—because you want to be noticed, not ignored.",
 };
 
 const PostHogPageView = dynamic(() => import("./postHogPageView"), {
