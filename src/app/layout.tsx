@@ -1,6 +1,7 @@
 import "./globals.css";
 
 import { CSPostHogProvider } from "./providers";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { HeaderNav } from "@/components/header-nav";
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
@@ -34,6 +35,9 @@ export default function RootLayout({
             sora.variable
           )}
         >
+          <GoogleAnalytics
+            gaId={process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID!}
+          />
           <PostHogPageView />
           <HeaderNav />
           {children}
