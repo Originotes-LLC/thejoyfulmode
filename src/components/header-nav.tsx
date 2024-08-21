@@ -59,7 +59,7 @@ const products = [
 ];
 const callsToAction = [
   { name: "Watch demo", href: "#", icon: PlayCircleIcon },
-  { name: "Schedule a call", href: "#", icon: PhoneIcon },
+  { name: "Schedule a call", href: "/schedule-call", icon: PhoneIcon },
   { name: "Client Onboarding", href: "#", icon: Handshake },
 ];
 const callsToActionMobile = [
