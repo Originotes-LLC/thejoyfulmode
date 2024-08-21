@@ -65,6 +65,4 @@ export function Hero() {
   - We are like the Michelangelo of pixels, but with more coffee and fewer marble statues.
   - We turn your website into a winning argument.
   -No Need for Miranda: Your Website Has the Right to Be Eye-Catching
-
-
 */
