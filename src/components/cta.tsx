@@ -8,11 +8,11 @@ export function CTA() {
       <div className="max-w-[600px]">
         {/* We are like the Michelangelo of pixels, but with more coffee and
           fewer marble statues. */}
-        <h4 className="font-medium text-xl tracking-tighter text-foreground">
+        <h2 className="font-medium text-xl tracking-tighter text-foreground">
           Expert SEO, Marketing, Web Design & Development tailored for{" "}
           <span className="text-accent font-semibold">Law Firms {` `}</span>that
           want to be found, not forgotten.
-        </h4>
+        </h2>
       </div>
       <div className="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
         <Link className="group" href="/schedule-call">
