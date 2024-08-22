@@ -31,28 +31,28 @@ const products = [
   {
     name: "Web Design & Development",
     description:
-      "We don't just make your site look great; we make it so good, your competitors might ask for your autograph.",
+      "Build a website that'll have your competitors asking for autographs.",
     href: "#",
     icon: AppWindowMac,
   },
   {
     name: "SEO",
     description:
-      "We fine-tune your site until it's so visible, even your grandma will find you on the first page.",
+      "We optimize your site until your grandma finds you on the first page",
     href: "#",
     icon: ChartNoAxesCombined,
   },
   {
     name: "Marketing",
     description:
-      "Our campaigns so sharp, they cut through the noise and make your brand the star of the show.",
+      "Our campaigns cut through the noise and make your brand shine.",
     href: "#",
     icon: ImagePlay,
   },
   {
-    name: "IT Services",
+    name: "Pay Per Click (PPC)",
     description:
-      "Smooth, hassle-free tech solutions that let you focus on your game.",
+      "We'll make sure your ads are seen by the right people at the right time.",
     href: "#",
     icon: Wrench,
   },
@@ -64,34 +64,33 @@ const callsToAction = [
 ];
 const callsToActionMobile = [
   { name: "Demo", href: "#", icon: PlayCircleIcon },
-  { name: "Call Us", href: "#", icon: PhoneIcon },
+  { name: "Call Us", href: "/schedule-call", icon: PhoneIcon },
   { name: "Onboarding", href: "#", icon: Handshake },
 ];
 
 const company = [
   {
-    name: "Just Us",
+    name: "Our Mission",
     href: "#",
     description:
-      "Learn more about our company values and mission to empower others",
+      "Learn more about our company values and mission to empower others.",
   },
   {
     name: "Client Cheers",
     href: "#",
     description:
-      "Looking for you next career opportunity? See all of our open positions",
+      "All the love we've received from our clients. We're blushing.",
   },
   {
-    name: "Support",
-    href: "#",
-    description:
-      "Get in touch with our dedicated support team or reach out on our community forums",
+    name: "Say Hello",
+    href: "/schedule-call",
+    description: "Get in touch with our team of joyful experts.",
   },
   {
     name: "Brain Candy",
     href: "/blog",
     description:
-      "Read our latest announcements and get perspectives from our team",
+      "Read our latest announcements and get perspectives from our team.",
   },
 ];
 
@@ -143,27 +142,28 @@ export function HeaderNav() {
               className="absolute inset-x-0 top-0 -z-10 bg-primary pt-14 shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
             >
               <div className="mx-auto grid max-w-7xl grid-cols-4 gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
+                {/* Desktop version - it's almost identical to small screens view */}
                 {products.map((item) => (
                   <div
                     key={item.name}
-                    className="group relative -mx-3 flex gap-6 rounded-lg p-3 text-sm leading-6 hover:bg-secondary sm:flex-col sm:p-6"
+                    className="group relative -mx-3 flex gap-6 rounded-lg p-3 text-sm leading-6 hover:bg-gray-50 sm:flex-col sm:p-6"
                   >
-                    <div className="flex h-11 w-11 items-center justify-center rounded-lg">
+                    <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg">
                       <item.icon
                         aria-hidden="true"
-                        className="size-6 text-foreground group-hover:text-background"
+                        className="h-6 w-6 text-foreground"
                       />
                     </div>
-                    <Link
-                      href={item.href}
-                      className="mt-6 block font-semibold text-foreground group-hover:text-background"
-                    >
-                      {item.name}
-                      <span className="absolute inset-0" />
-                    </Link>
-                    <p className="mt-1 text-foreground group-hover:text-background">
-                      {item.description}
-                    </p>
+                    <div>
+                      <a
+                        href={item.href}
+                        className="font-semibold text-gray-900"
+                      >
+                        {item.name}
+                        <span className="absolute inset-0" />
+                      </a>
+                      <p className="mt-1 text-gray-600">{item.description}</p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -240,31 +240,47 @@ export function HeaderNav() {
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
+                  {/* small screens / mobile view */}
                   {products.map((item) => (
-                    <Link
+                    <div
                       key={item.name}
-                      href={item.href}
-                      className="group -mx-3 flex items-center gap-x-6 rounded-lg p-3 text-base font-semibold leading-7 text-foreground hover:bg-secondary hover:text-background"
+                      className="group relative -mx-3 flex gap-6 rounded-lg p-3 text-sm leading-6 hover:bg-gray-50 sm:flex-col sm:p-6"
                     >
-                      <div className="flex size-11 flex-none items-center justify-center rounded-lg group-hover:text-background">
+                      <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg">
                         <item.icon
                           aria-hidden="true"
-                          className="size-6 text-foreground group-hover:text-background"
+                          className="h-6 w-6 text-foreground"
                         />
                       </div>
-                      {item.name}
-                    </Link>
+                      <div>
+                        <a
+                          href={item.href}
+                          className="font-semibold text-gray-900"
+                        >
+                          {item.name}
+                          <span className="absolute inset-0" />
+                        </a>
+                        <p className="mt-1 text-neutral-600">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
                   ))}
                 </div>
                 <div className="space-y-2 py-6">
                   {company.map((item) => (
-                    <a
+                    <Link
+                      onClick={() => setMobileMenuOpen(false)}
                       key={item.name}
                       href={item.href}
                       className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     >
                       {item.name}
-                    </a>
+
+                      <p className="mt-0.5 text-foreground text-sm font-normal">
+                        {item.description}
+                      </p>
+                    </Link>
                   ))}
                 </div>
                 <div className="py-6">
