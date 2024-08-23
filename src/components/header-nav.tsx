@@ -25,6 +25,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import logo from "./v3.png";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const products = [
@@ -95,9 +96,10 @@ const company = [
 ];
 
 export function HeaderNav() {
+  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  return (
+  return pathname.includes("/studio") ? null : (
     <header className="relative isolate z-10 bg-primary">
       <nav
         aria-label="Global"

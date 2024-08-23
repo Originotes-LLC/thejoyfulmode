@@ -13,7 +13,19 @@ import config from "../../../../../sanity.config.ts";
 export const dynamic = "force-static";
 
 export { metadata, viewport } from "next-sanity/studio";
-
+/*
+#app {
+  height: 100vh;
+  max-height: 100dvh;
+  overscroll-behavior: none;
+  -webkit-font-smoothing: antialiased;
+  overflow: auto;
+}
+*/
 export default function StudioPage() {
-  return <NextStudio config={config} />;
+  return (
+    <div className="h-screen max-h-dvh overscroll-none antialiased overflow-auto">
+      <NextStudio config={config} />
+    </div>
+  );
 }
