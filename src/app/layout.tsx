@@ -11,10 +11,16 @@ import dynamic from "next/dynamic";
 
 const sora = Sora({ subsets: ["latin"], variable: "--font-sans" });
 
+//
 export const metadata: Metadata = {
-  title: "The Joyful Mode - Expert Web Design, SEO & Marketing for Law Firms",
+  metadataBase: new URL("https://www.thejoyfulmode.com"),
   description:
-    "Transform your Law Firm's online presence with The Joyful Mode. Specializing in Web Design, SEO, and Marketing, we help lawyers attract more clients and stand out in the crowd—because you want to be noticed, not ignored.",
+    "Specializing in Web Design, SEO, and Marketing Strategies for Law Firms that want to be noticed, not ignored.",
+  title: {
+    template: "%s | The Joyful Mode",
+    default:
+      "Expert Web Design, SEO & Marketing for Law Firms | The Joyful Mode",
+  },
 };
 
 const PostHogPageView = dynamic(() => import("./postHogPageView"), {

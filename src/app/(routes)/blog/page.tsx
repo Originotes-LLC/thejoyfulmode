@@ -1,10 +1,16 @@
-import { Button } from "@/components/ui/button";
 import { EmptyBlog } from "./empty-blog";
+import type { Metadata } from "next";
 import { NextImage } from "@/components/sanity-image";
 import { POSTS_QUERY } from "@/sanity/lib/queries";
 import { POSTS_QUERYResult } from "../../../../sanity.types";
 import { sanityFetch } from "@/sanity/lib/client";
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Insights on Web Design, SEO & Marketing for Law Firms",
+  description:
+    "Explore our blog for expert tips, strategies, and insights on web design, SEO, and marketing tailored for law firms. Stay ahead in the legal industry with The Joyful Mode.",
+};
 
 export default async function Blog() {
   const posts = await sanityFetch<POSTS_QUERYResult>({
