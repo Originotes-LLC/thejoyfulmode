@@ -31,7 +31,7 @@ export const metadata = {
   creator: "Waldo Lavaut",
   publisher: "The Joyful Mode",
   formatDetection: {
-    email: true,
+    email: false,
     address: false,
     telephone: false,
   },
