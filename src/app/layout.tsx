@@ -16,6 +16,8 @@ export const metadata = {
   generator: "Next.js",
   applicationName: "The Joyful Mode",
   referrer: "origin-when-cross-origin",
+  description:
+    "Partner with The Joyful Mode for expert web design, SEO, and marketing tailored to law firms. Elevate your online presence and grow your practice.",
   keywords: [
     "Web Design",
     "SEO",
