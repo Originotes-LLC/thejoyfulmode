@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: "https://www.thejoyfulmode.com/blog",
+      url: "https://www.thejoyfulmode.com/law-academy",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.7,
