@@ -28,8 +28,18 @@ export default async function Image() {
           justifyContent: "center",
         }}
       >
-        <div className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-          <p>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <p
+            style={{
+              color: "#000",
+              fontSize: 128,
+            }}
+          >
             The Joyful{``}
             <span
               style={{
@@ -42,7 +52,7 @@ export default async function Image() {
           <p
             style={{
               color: "#000",
-              // fontSize: 48,
+              fontSize: 32,
             }}
           >
             .COM
