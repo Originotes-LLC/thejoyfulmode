@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ScheduleCallForm } from "./schedule-call-form";
 
-export const metadata = {
+export const metadata: Metadata = {
   generator: "Next.js",
   applicationName: "The Joyful Mode",
   referrer: "origin-when-cross-origin",
@@ -44,7 +44,6 @@ export const metadata = {
       "Contact The Joyful Mode for a consultation on web design, SEO, and marketing strategies designed for law firms. Schedule your call today.",
     creator: "@TheJoyfulMode",
   },
-  canonical: "https://www.thejoyfulmode.com/schedule-call",
 };
 
 export default function ScheduleCall() {

@@ -109,6 +109,7 @@ export function ScheduleCallForm() {
       <div className="lg:absolute lg:inset-0 lg:left-1/2">
         <div className="relative h-64 w-full sm:h-80 lg:absolute lg:h-full">
           <Image
+            priority
             fill
             alt="The Joyful Mode work office picture."
             src="https://images.unsplash.com/photo-1552960394-c81add8de6b8?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -166,7 +167,7 @@ export function ScheduleCallForm() {
                                     (issue) => issue.path[0] === "firstName"
                                   )
                                   .map((issue) => issue.message)[0]
-                                  ? "text-base block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-2 ring-inset ring-red-500 sm:text-sm sm:leading-6"
+                                  ? "text-base block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-2 ring-inset ring-red-500 sm:text-sm sm:leading-6 focus:bg-background"
                                   : "block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-foreground sm:text-sm sm:leading-6 text-base focus:bg-background"
                               }
                               autoComplete="given-name"
@@ -218,7 +219,7 @@ export function ScheduleCallForm() {
                                     (issue) => issue.path[0] === "lastName"
                                   )
                                   .map((issue) => issue.message)[0]
-                                  ? "text-base block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-2 ring-inset ring-red-500 sm:text-sm sm:leading-6"
+                                  ? "text-base block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-2 ring-inset ring-red-500 sm:text-sm sm:leading-6 focus:bg-background"
                                   : "block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-foreground sm:text-sm sm:leading-6 text-base focus:bg-background"
                               }
                               autoComplete="family-name"
@@ -272,7 +273,7 @@ export function ScheduleCallForm() {
                                       (issue) => issue.path[0] === "lastName"
                                     )
                                     .map((issue) => issue.message)[0]
-                                    ? "text-base block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-2 ring-inset ring-red-500 sm:text-sm sm:leading-6"
+                                    ? "text-base block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-2 ring-inset ring-red-500 sm:text-sm sm:leading-6 focus:bg-background"
                                     : "block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-foreground sm:text-sm sm:leading-6 text-base focus:bg-background"
                                 }
                                 autoComplete="email"
@@ -337,7 +338,7 @@ export function ScheduleCallForm() {
                                         issue.path[0] === "businessName"
                                     )
                                     .map((issue) => issue.message)[0]
-                                    ? "text-base block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-2 ring-inset ring-red-500 sm:text-sm sm:leading-6"
+                                    ? "text-base block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-2 ring-inset ring-red-500 sm:text-sm sm:leading-6 focus:bg-background"
                                     : "block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-foreground sm:text-sm sm:leading-6 text-base focus:bg-background"
                                 }
                                 placeholder="The Best Law Firm"
@@ -419,7 +420,7 @@ export function ScheduleCallForm() {
                                       (issue) => issue.path[0] === "helpMessage"
                                     )
                                     .map((issue) => issue.message)[0]
-                                    ? "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-red-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
+                                    ? "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-red-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6 focus:bg-background"
                                     : "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-foreground placeholder:text-secondary focus:ring-2 focus:ring-inset focus:ring-accent sm:text-sm sm:leading-6 focus:bg-background"
                                 }
                               />

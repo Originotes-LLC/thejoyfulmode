@@ -1,17 +1,18 @@
 import "./globals.css";
 
+import { Analytics } from "@vercel/analytics/react";
 import { CSPostHogProvider } from "./providers";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { HeaderNav } from "@/components/header-nav";
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
 import dynamic from "next/dynamic";
 
 const sora = Sora({ subsets: ["latin"], variable: "--font-sans" });
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: new URL("https://www.thejoyfulmode.com"),
   generator: "Next.js",
   applicationName: "The Joyful Mode",
@@ -59,7 +60,6 @@ export const metadata = {
       "Enhance your law firm's online presence with professional web design, SEO, and marketing services from The Joyful Mode. Get noticed and attract more clients.",
     creator: "@TheJoyfulMode",
   },
-  canonical: "https://www.thejoyfulmode.com",
 };
 
 const PostHogPageView = dynamic(() => import("./postHogPageView"), {
@@ -80,12 +80,11 @@ export default function RootLayout({
             sora.variable
           )}
         >
-          <GoogleAnalytics
-            gaId={process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID!}
-          />
           <PostHogPageView />
           <HeaderNav />
           {children}
+          <Analytics />
+          <SpeedInsights />
           <Toaster />
         </body>
       </CSPostHogProvider>
