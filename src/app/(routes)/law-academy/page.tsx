@@ -6,7 +6,7 @@ import { POSTS_QUERYResult } from "../../../../sanity.types";
 import { sanityFetch } from "@/sanity/lib/client";
 export const dynamic = "force-dynamic";
 
-export const metadata = {
+export const metadata: Metadata = {
   generator: "Next.js",
   applicationName: "The Joyful Mode",
   referrer: "origin-when-cross-origin",
@@ -47,7 +47,6 @@ export const metadata = {
       "Explore expert tips, strategies, and insights on web design, SEO, and marketing for law firms with The Joyful Mode's blog.",
     creator: "@TheJoyfulMode",
   },
-  canonical: "https://www.thejoyfulmode.com/blog",
 };
 
 export default async function Blog() {
