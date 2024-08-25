@@ -1,3 +1,5 @@
+import Image from "next/image";
+import lawyerStudying from "./lawyers-studying-min.jpeg";
 export const EmptyBlog = () => {
   return (
     <div className="relative overflow-hidden">
@@ -56,12 +58,15 @@ export const EmptyBlog = () => {
                   Coming soon
                 </span>
                 <span className="mt-1 block text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl">
-                  <span className="block text-foreground">The Joyful Blog</span>
+                  <span className="block text-foreground">
+                    The Joyful Law Academy
+                  </span>
                 </span>
               </h1>
               <p className="mt-3 text-base text-foreground sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-                We're working on something great! <br />
-                Check back soon for updates.
+                We're working hard to bring you the best SEO tips, marketing
+                strategies, and web design & development tailored for law firms
+                that want to be noticed, not ignored. Stay tuned!
               </p>
             </div>
             <div className="relative mt-12 sm:mx-auto sm:max-w-lg lg:col-span-6 lg:mx-0 lg:mt-0 lg:flex lg:max-w-none lg:items-center">
@@ -107,36 +112,13 @@ export const EmptyBlog = () => {
                 />
               </svg>
               <div className="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
-                <button
-                  type="button"
-                  className="relative block w-full overflow-hidden rounded-lg bg-accent focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
-                >
-                  <span className="sr-only">Watch our video to learn more</span>
-                  <img
-                    alt=""
-                    src="https://images.unsplash.com/photo-1556740758-90de374c12ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                    className="w-full"
-                  />
-                  {/* <span
-                    aria-hidden="true"
-                    className="absolute inset-0 flex h-full w-full items-center justify-center"
-                  >
-                    <svg
-                      fill="currentColor"
-                      viewBox="0 0 84 84"
-                      className="h-20 w-20 text-accent"
-                    >
-                      <circle
-                        r={42}
-                        cx={42}
-                        cy={42}
-                        fill="black"
-                        opacity="0.9"
-                      />
-                      <path d="M55.5039 40.3359L37.1094 28.0729C35.7803 27.1869 34 28.1396 34 29.737V54.263C34 55.8604 35.7803 56.8131 37.1094 55.9271L55.5038 43.6641C56.6913 42.8725 56.6913 41.1275 55.5039 40.3359Z" />
-                    </svg>
-                  </span> */}
-                </button>
+                <Image
+                  width={1800}
+                  height={1200}
+                  alt="lawyer studying the best seo tips from the joyful mode law academy"
+                  src={lawyerStudying}
+                  className="size-full object-cover"
+                />
               </div>
             </div>
           </div>
