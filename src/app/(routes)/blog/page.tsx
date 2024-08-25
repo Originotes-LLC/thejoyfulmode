@@ -1,10 +1,54 @@
-import { Button } from "@/components/ui/button";
 import { EmptyBlog } from "./empty-blog";
+import type { Metadata } from "next";
 import { NextImage } from "@/components/sanity-image";
 import { POSTS_QUERY } from "@/sanity/lib/queries";
 import { POSTS_QUERYResult } from "../../../../sanity.types";
 import { sanityFetch } from "@/sanity/lib/client";
 export const dynamic = "force-dynamic";
+
+export const metadata = {
+  generator: "Next.js",
+  applicationName: "The Joyful Mode",
+  referrer: "origin-when-cross-origin",
+  keywords: [
+    "Web Design Blog",
+    "SEO Blog",
+    "Marketing Blog",
+    "Law Firm Marketing",
+    "Creative Agency Blog",
+    "The Joyful Mode",
+  ],
+  authors: [
+    { name: "Waldo Lavaut" },
+    { name: "The Joyful Mode Team", url: "https://www.thejoyfulmode.com" },
+  ],
+  creator: "Waldo Lavaut",
+  publisher: "The Joyful Mode",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  title: "Web Design, SEO & Marketing Insights for Law Firms",
+  description:
+    "Explore expert tips, strategies, and insights on web design, SEO, and marketing for law firms. Stay ahead with The Joyful Mode's blog.",
+  openGraph: {
+    title: "Web Design, SEO & Marketing Insights for Law Firms",
+    description:
+      "Dive into expert tips, strategies, and insights on web design, SEO, and marketing tailored for law firms, brought to you by The Joyful Mode.",
+    url: "https://www.thejoyfulmode.com/blog",
+    siteName: "The Joyful Mode",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Web Design, SEO & Marketing Insights for Law Firms",
+    description:
+      "Explore expert tips, strategies, and insights on web design, SEO, and marketing for law firms with The Joyful Mode's blog.",
+    creator: "@TheJoyfulMode",
+  },
+  canonical: "https://www.thejoyfulmode.com/blog",
+};
 
 export default async function Blog() {
   const posts = await sanityFetch<POSTS_QUERYResult>({

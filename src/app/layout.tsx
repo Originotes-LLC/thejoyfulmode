@@ -11,10 +11,55 @@ import dynamic from "next/dynamic";
 
 const sora = Sora({ subsets: ["latin"], variable: "--font-sans" });
 
-export const metadata: Metadata = {
-  title: "The Joyful Mode - Expert Web Design, SEO & Marketing for Law Firms",
+export const metadata = {
+  metadataBase: new URL("https://www.thejoyfulmode.com"),
+  generator: "Next.js",
+  applicationName: "The Joyful Mode",
+  referrer: "origin-when-cross-origin",
   description:
-    "Transform your Law Firm's online presence with The Joyful Mode. Specializing in Web Design, SEO, and Marketing, we help lawyers attract more clients and stand out in the crowd—because you want to be noticed, not ignored.",
+    "Partner with The Joyful Mode for expert web design, SEO, and marketing tailored to law firms. Elevate your online presence and grow your practice.",
+  keywords: [
+    "Web Design",
+    "SEO",
+    "Marketing",
+    "Law Firm Marketing",
+    "Creative Agency",
+    "The Joyful Mode",
+  ],
+  authors: [
+    { name: "Waldo Lavaut" },
+    { name: "The Joyful Mode Team", url: "https://www.thejoyfulmode.com" },
+  ],
+  creator: "Waldo Lavaut",
+  publisher: "The Joyful Mode",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  title: {
+    template: "%s | The Joyful Mode",
+    default:
+      "Expert Web Design, SEO & Marketing for Law Firms | The Joyful Mode",
+  },
+  openGraph: {
+    title:
+      "Creative Web Design, SEO & Marketing for Law Firms | The Joyful Mode",
+    description:
+      "Partner with The Joyful Mode for expert web design, SEO, and marketing tailored to law firms. Elevate your online presence and grow your practice.",
+    url: "https://www.thejoyfulmode.com",
+    siteName: "The Joyful Mode",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Creative Web Design, SEO & Marketing for Law Firms | The Joyful Mode",
+    description:
+      "Enhance your law firm's online presence with professional web design, SEO, and marketing services from The Joyful Mode. Get noticed and attract more clients.",
+    creator: "@TheJoyfulMode",
+  },
+  canonical: "https://www.thejoyfulmode.com",
 };
 
 const PostHogPageView = dynamic(() => import("./postHogPageView"), {
