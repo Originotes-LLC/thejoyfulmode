@@ -74,7 +74,7 @@ const company = [
     name: "Our Mission",
     href: "#",
     description:
-      "Learn more about our company values and mission to empower others.",
+      "Learn more about our agency values and mission to empower others.",
   },
   {
     name: "Client Cheers",
@@ -88,10 +88,10 @@ const company = [
     description: "Get in touch with our team of joyful experts.",
   },
   {
-    name: "Brain Candy",
-    href: "/blog",
+    name: "Law Academy",
+    href: "/law-academy",
     description:
-      "Read our latest announcements and get perspectives from our team.",
+      "Our blog is full of tips and tricks to help you grow your practice.",
   },
 ];
 

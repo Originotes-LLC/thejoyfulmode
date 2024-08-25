@@ -112,7 +112,7 @@ export function ScheduleCallForm() {
             fill
             alt="The Joyful Mode work office picture."
             src="https://images.unsplash.com/photo-1552960394-c81add8de6b8?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            className="size-full object-cover bg-gray-50"
+            className="size-full object-cover bg-gray-50 object-top md:object-center"
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
         </div>

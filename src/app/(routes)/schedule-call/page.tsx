@@ -30,8 +30,7 @@ export const metadata = {
   description:
     "Get in touch with The Joyful Mode for expert web design, SEO, and marketing services tailored for law firms. Schedule a consultation today.",
   openGraph: {
-    title:
-      "Schedule a Call with The Joyful Mode | Web Design & SEO for Law Firms",
+    title: "Schedule a Call | Web Design & SEO for Law Firms",
     description:
       "Connect with The Joyful Mode to discuss your law firm's web design, SEO, and marketing needs. Schedule a call and start transforming your online presence.",
     url: "https://www.thejoyfulmode.com/schedule-call",
@@ -40,8 +39,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Schedule a Call with The Joyful Mode | Web Design & SEO for Law Firms",
+    title: "Schedule a Call | Web Design & SEO for Law Firms",
     description:
       "Contact The Joyful Mode for a consultation on web design, SEO, and marketing strategies designed for law firms. Schedule your call today.",
     creator: "@TheJoyfulMode",
