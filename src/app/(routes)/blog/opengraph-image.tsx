@@ -20,7 +20,6 @@ export default async function Image() {
     (
       <div
         style={{
-          fontSize: 128,
           background: "#F8DA1B",
           width: "100%",
           height: "100%",
@@ -29,14 +28,36 @@ export default async function Image() {
           justifyContent: "center",
         }}
       >
-        The Joyful{" "}
-        <span
+        <div
           style={{
-            color: "#9A008A",
+            display: "flex",
+            flexDirection: "column",
           }}
         >
-          Mode
-        </span>
+          <p
+            style={{
+              color: "#000",
+              fontSize: 128,
+            }}
+          >
+            The Joyful{``}
+            <span
+              style={{
+                color: "#9A008A",
+              }}
+            >
+              Mode
+            </span>
+          </p>
+          <p
+            style={{
+              color: "#000",
+              fontSize: 32,
+            }}
+          >
+            .COM
+          </p>
+        </div>
       </div>
     ),
     {
