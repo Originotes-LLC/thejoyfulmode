@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "Web Design, SEO & Marketing Insights for Law Firms",
     description:
       "Dive into expert tips, strategies, and insights on web design, SEO, and marketing tailored for law firms, brought to you by The Joyful Mode.",
-    url: "https://www.thejoyfulmode.com/blog",
+    url: "https://www.thejoyfulmode.com/law-academy",
     siteName: "The Joyful Mode",
     type: "website",
   },
