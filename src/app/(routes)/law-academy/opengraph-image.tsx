@@ -13,7 +13,7 @@ export const contentType = "image/png";
 
 export default async function Image() {
   const soraSemiBold = fetch(
-    new URL("../../../assets/Sora-SemiBold.ttf", import.meta.url)
+    new URL("../../../assets/fonts/Sora-SemiBold.ttf", import.meta.url)
   ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(

@@ -5,9 +5,9 @@ const stats = [
   {
     id: 1,
     name: "Client Conversions",
-    stat: "78%",
+    stat: "98%",
     icon: Globe,
-    change: "11",
+    change: "111",
     changeType: "increase",
   },
   {

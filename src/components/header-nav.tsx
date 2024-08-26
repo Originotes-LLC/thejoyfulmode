@@ -24,7 +24,7 @@ import {
 
 import Image from "next/image";
 import Link from "next/link";
-import logo from "./tjm_logo_black_on_transparent.png";
+import logo from "../assets/logo/tjm_logo_black_on_transparent.png";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 

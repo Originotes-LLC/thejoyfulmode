@@ -1,11 +1,20 @@
-import { ArrowUpRightIcon, PhoneIcon } from "@heroicons/react/24/outline";
-
+import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 import { Button } from "@/components/ui/button";
 import { Circle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { StatsHero } from "./stats-hero";
-import lawyer from "./lawyer-transparent.png";
+import lawyer from "../assets/images/lawyer-transparent.png";
+
+/*
+  potential good lines: 
+  - Your Next Big Case Starts Here.
+  - We turn traffic into trials.
+  - Habeas Corpus Meets Habeas Clicks
+  - We are like the Michelangelo of pixels, but with more coffee and fewer marble statues.
+  - We turn your website into a winning argument.
+  -No Need for Miranda: Your Website Has the Right to Be Eye-Catching
+*/
 
 export function Hero() {
   return (
@@ -42,7 +51,7 @@ export function Hero() {
             </div>
           </div>
           {/* section non sense icons */}
-          <div className="absolute top-20 lg:top-72 lg:transform lg:translate-x-32">
+          <div className="absolute top-20 lg:top-60 lg:transform lg:translate-x-32">
             <StatsHero />
           </div>
           <div className="max-w-xl flex-none sm:max-w-3xl lg:max-w-none z-50">
