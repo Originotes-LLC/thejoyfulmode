@@ -80,12 +80,14 @@ export default function RootLayout({
             sora.variable
           )}
         >
-          <PostHogPageView />
-          <HeaderNav />
-          {children}
-          <Analytics />
-          <SpeedInsights />
-          <Toaster />
+          <div>
+            <HeaderNav />
+            <PostHogPageView />
+            {children}
+            <Analytics />
+            <SpeedInsights />
+            <Toaster />
+          </div>
         </body>
       </CSPostHogProvider>
     </html>
