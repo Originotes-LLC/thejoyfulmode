@@ -54,7 +54,7 @@ export function Hero() {
           <div className="absolute top-20 lg:top-60 lg:transform lg:translate-x-32">
             <StatsHero />
           </div>
-          <div className="max-w-xl flex-none sm:max-w-3xl lg:max-w-none z-50">
+          <div className="max-w-xl flex-none sm:max-w-3xl lg:max-w-none z-40">
             <div className="-m-2 p-2 lg:-m-4 lg:p-4">
               <Image
                 alt="A young lawyer feeling empowered by the joyful mode services"
