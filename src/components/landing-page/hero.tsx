@@ -4,7 +4,7 @@ import { Circle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { StatsHero } from "./stats-hero";
-import lawyer from "../assets/images/lawyer-transparent.png";
+import lawyer from "@/assets/images/lawyer-transparent.png";
 
 /*
   potential good lines: 
@@ -21,9 +21,10 @@ export function Hero() {
     <div className="relative isolate overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8">
-          <h1 className="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-            Hey, 👋🏻 Law Firm. <br /> Your Next Big Case
-            <span className="text-accent"> Starts Here</span>.
+          <h1 className="mt-10 text-4xl font-bold tracking-tight text-foreground sm:text-6xl space-y-1">
+            Hey, 👋🏻 Law Firm. <br /> Your Next Big Case{` `}
+            <span className="text-background bg-accent px-5"> Starts Here</span>
+            .
           </h1>
           <p className="mt-6 text-lg leading-8 text-foreground font-medium">
             Expert SEO, Marketing, Web Design & Development tailored for{" "}
