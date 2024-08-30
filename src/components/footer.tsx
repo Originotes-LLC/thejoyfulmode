@@ -181,7 +181,7 @@ export function Footer() {
                 key={item.name}
                 href={item.href}
                 className="text-background hover:text-accent"
-                rel="noreferrer noopener"
+                rel="external nofollow noopener"
                 target="_blank"
               >
                 <span className="sr-only">{item.name}</span>
