@@ -5,7 +5,7 @@ import {
   ChartNoAxesCombined,
   Handshake,
   ImagePlay,
-  Wrench,
+  Megaphone,
 } from "lucide-react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Dialog, DialogPanel } from "@headlessui/react";
@@ -49,11 +49,11 @@ const products = [
     icon: ImagePlay,
   },
   {
-    name: "Pay Per Click (PPC)",
+    name: "Advertising",
     description:
       "We'll make sure your ads are seen by the right people at the right time.",
     href: "#",
-    icon: Wrench,
+    icon: Megaphone,
   },
 ];
 const callsToAction = [
