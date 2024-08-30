@@ -65,6 +65,8 @@ export function Hero() {
                 src={lawyer}
                 width={2432}
                 height={1442}
+                priority
+                placeholder="blur"
                 className="w-[76rem]"
               />
             </div>
