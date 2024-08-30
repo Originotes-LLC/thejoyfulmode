@@ -2,6 +2,7 @@ import "./globals.css";
 
 import { Analytics } from "@vercel/analytics/react";
 import { CSPostHogProvider } from "./providers";
+import { Footer } from "@/components/footer";
 import { HeaderNav } from "@/components/header-nav";
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
@@ -80,14 +81,13 @@ export default function RootLayout({
             sora.variable
           )}
         >
-          <div>
-            <HeaderNav />
-            <PostHogPageView />
-            {children}
-            <Analytics />
-            <SpeedInsights />
-            <Toaster />
-          </div>
+          <HeaderNav />
+          <PostHogPageView />
+          {children}
+          <Analytics />
+          <SpeedInsights />
+          <Footer />
+          <Toaster />
         </body>
       </CSPostHogProvider>
     </html>

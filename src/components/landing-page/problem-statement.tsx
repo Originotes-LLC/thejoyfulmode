@@ -1,9 +1,5 @@
-import {
-  CheckCircleIcon,
-  InformationCircleIcon,
-} from "@heroicons/react/20/solid";
-
 import Image from "next/image";
+import { InformationCircleIcon } from "@heroicons/react/20/solid";
 import happyWorkers from "@/assets/images/celebrate-office.jpg";
 
 export function ProblemStatement() {
@@ -24,12 +20,12 @@ export function ProblemStatement() {
           look so compelling, it should be considered a masterpiece.
         </p>
         <figure className="mt-16">
-          <div className="relative aspect-video">
+          <div className="relative aspect-w-16 aspect-h-9">
             <Image
               fill
               alt="happy workers at The Joyful Mode"
               src={happyWorkers}
-              className="rounded-xl bg-gray-50 object-cover"
+              className="rounded-xl bg-gray-50 object-cover size-full"
             />
           </div>
 

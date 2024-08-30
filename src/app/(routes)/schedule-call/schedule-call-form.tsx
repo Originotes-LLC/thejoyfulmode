@@ -105,7 +105,7 @@ export function ScheduleCallForm() {
   };
 
   return (
-    <div className="relative overflow-hidden">
+    <main className="relative overflow-hidden">
       <div className="lg:absolute lg:inset-0 lg:left-1/2">
         <div className="relative h-64 w-full sm:h-80 lg:absolute lg:h-full">
           <Image
@@ -473,6 +473,6 @@ export function ScheduleCallForm() {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
