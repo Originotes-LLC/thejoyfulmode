@@ -23,7 +23,10 @@ export function Hero() {
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8">
           <h1 className="mt-10 text-4xl font-bold tracking-tight text-foreground sm:text-6xl space-y-1">
             Hey, 👋🏻 Law Firm. <br /> Your Next Big Case{` `}
-            <span className="text-background bg-accent px-5"> Starts Here</span>
+            <span className="inline-block text-background bg-accent px-3 py-1 my-2">
+              {" "}
+              Starts Here
+            </span>
             .
           </h1>
           <p className="mt-6 text-lg leading-8 text-foreground font-medium">
