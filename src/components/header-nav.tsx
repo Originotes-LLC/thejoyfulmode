@@ -3,6 +3,7 @@
 import {
   AppWindowMac,
   ChartNoAxesCombined,
+  CircleUser,
   Handshake,
   ImagePlay,
   Megaphone,
@@ -130,7 +131,7 @@ export function HeaderNav() {
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {products.map((item) => (
-                <div
+                <li
                   key={item.name}
                   className="group relative -mx-3 flex gap-6 rounded-lg p-3 text-sm leading-6 hover:bg-gray-50 sm:flex-col sm:p-6"
                 >
@@ -150,7 +151,7 @@ export function HeaderNav() {
                     </Link>
                     <p className="mt-1 text-gray-600">{item.description}</p>
                   </div>
-                </div>
+                </li>
               ))}
             </ul>
             <div className="bg-foreground">
@@ -189,20 +190,19 @@ export function HeaderNav() {
             </Link>
           ))}
         </NavigationMenuItem>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <NavigationMenuItem>
-            <Link
-              legacyBehavior
-              passHref
-              href="#"
-              className="text-sm font-semibold leading-6 p-0.5 text-foreground hover:text-accent hover:underline hover:decoration-1 hover:decoration-double"
-            >
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Client Portal <span aria-hidden="true">&rarr;</span>
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-        </div>
+
+        <NavigationMenuItem className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <Link
+            legacyBehavior
+            passHref
+            href="#"
+            className="text-sm font-semibold leading-6 p-0.5 text-foreground hover:text-accent hover:underline hover:decoration-1 hover:decoration-double"
+          >
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Client Portal <span aria-hidden="true">&rarr;</span>
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
       </NavigationMenuList>
 
       <Dialog
@@ -284,29 +284,31 @@ export function HeaderNav() {
                 <div className="py-6">
                   <Link
                     href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-foreground hover:text-accent hover:underline hover:decoration-1 hover:decoration-double"
+                    className="-mx-3 flex items-center space-x-2 px-3 py-2.5 text-base font-semibold leading-7 text-foreground"
                   >
-                    Client Portal
+                    <CircleUser className="size-5 text-foreground mr-2" />
+                    Client Portal <span aria-hidden="true">&rarr;</span>
                   </Link>
                 </div>
               </div>
             </div>
           </div>
-          <div className="sticky bottom-0 grid grid-cols-3 divide-x divide-gray-900/5 border-x border-gray-900/5 bg-foreground">
+          <ul className="sticky bottom-0 grid grid-cols-3 divide-x divide-gray-900/5 border-x border-gray-900/5 bg-foreground">
             {callsToActionMobile.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="flex items-center justify-center gap-x-1 p-2.5 text-sm font-medium leading-6 text-background hover:bg-accent"
-              >
-                <item.icon
-                  aria-hidden="true"
-                  className="size-4 flex-none text-background"
-                />
-                {item.name}
-              </Link>
+              <li key={item.name}>
+                <Link
+                  href={item.href}
+                  className="flex items-center justify-center gap-x-1 p-2.5 text-sm font-medium leading-6 text-background hover:bg-accent"
+                >
+                  <item.icon
+                    aria-hidden="true"
+                    className="size-4 flex-none text-background"
+                  />
+                  {item.name}
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </DialogPanel>
       </Dialog>
     </NavigationMenu>
