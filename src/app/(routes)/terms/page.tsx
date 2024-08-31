@@ -38,7 +38,7 @@ export default function Terms() {
                 </p>
                 <h3>Definitions</h3>
                 <p>For the purposes of these Terms and Conditions:</p>
-                <ul>
+                <ul className="marker:text-foreground">
                   <li>
                     <p>
                       <strong>Affiliate</strong> means an entity that controls,
@@ -319,7 +319,7 @@ export default function Terms() {
                   If you have any questions about these Terms and Conditions,
                   You can contact us:
                 </p>
-                <ul>
+                <ul className="marker:text-foreground">
                   <li>
                     <p>By email: support@thejoyfulmode.com</p>
                   </li>
