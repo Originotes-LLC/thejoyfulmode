@@ -6,9 +6,9 @@ export default function Privacy() {
       <div className="mx-auto max-w-max lg:max-w-7xl">
         <div className="relative z-10 mb-8 md:mb-2 md:px-6">
           <div className="max-w-prose text-base lg:max-w-none">
-            <h2 className="font-semibold leading-6 text-accent">
+            <h1 className="font-semibold leading-6 text-accent">
               Privacy Policy
-            </h2>
+            </h1>
             <p className="mt-2 text-3xl font-bold leading-8 tracking-tight text-foreground sm:text-4xl">
               Privacy Policy for The Joyful Mode
             </p>
@@ -556,8 +556,8 @@ export default function Privacy() {
                   <li>
                     <p>
                       By visiting this page on our website:{" "}
-                      <Link href="https://thejoyfulmode.com/schedule-call">
-                        https://thejoyfulmode.com/schedule-call
+                      <Link href="https://www.thejoyfulmode.com/schedule-call">
+                        https://www.thejoyfulmode.com/schedule-call
                       </Link>
                     </p>
                   </li>
