@@ -45,7 +45,7 @@ export default function Privacy() {
                 </p>
                 <h3>Definitions</h3>
                 <p>For the purposes of this Privacy Policy:</p>
-                <ul>
+                <ul className="marker:text-foreground">
                   <li>
                     <p>
                       <strong>Account</strong> means a unique account created
@@ -146,7 +146,7 @@ export default function Privacy() {
                   to contact or identify You. Personally identifiable
                   information may include, but is not limited to:
                 </p>
-                <ul>
+                <ul className="marker:text-foreground">
                   <li>
                     <p>Email address</p>
                   </li>
@@ -192,7 +192,7 @@ export default function Privacy() {
                   collect and track information and to improve and analyze Our
                   Service. The technologies We use may include:
                 </p>
-                <ul>
+                <ul className="marker:text-foreground">
                   <li>
                     <strong>Cookies or Browser Cookies.</strong> A cookie is a
                     small file placed on Your Device. You can instruct Your
@@ -223,7 +223,7 @@ export default function Privacy() {
                   We use both Session and Persistent Cookies for the purposes
                   set out below:
                 </p>
-                <ul>
+                <ul className="marker:text-foreground">
                   <li>
                     <p>
                       <strong>Necessary / Essential Cookies</strong>
@@ -278,7 +278,7 @@ export default function Privacy() {
                 <p>
                   The Company may use Personal Data for the following purposes:
                 </p>
-                <ul>
+                <ul className="marker:text-foreground">
                   <li>
                     <p>
                       <strong>To provide and maintain our Service</strong>,
@@ -355,7 +355,7 @@ export default function Privacy() {
                   We may share Your personal information in the following
                   situations:
                 </p>
-                <ul>
+                <ul className="marker:text-foreground">
                   <li>
                     <strong>With Service Providers:</strong> We may share Your
                     personal information with Service Providers to monitor and
@@ -476,7 +476,7 @@ export default function Privacy() {
                   The Company may disclose Your Personal Data in the good faith
                   belief that such action is necessary to:
                 </p>
-                <ul>
+                <ul className="marker:text-foreground">
                   <li>Comply with a legal obligation</li>
                   <li>
                     Protect and defend the rights or property of the Company
@@ -549,7 +549,7 @@ export default function Privacy() {
                   If you have any questions about this Privacy Policy, You can
                   contact us:
                 </p>
-                <ul>
+                <ul className="marker:text-foreground">
                   <li>
                     <p>By email: support@thejoyfulmode.com</p>
                   </li>
