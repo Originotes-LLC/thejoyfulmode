@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import lawyer from "@/assets/images/lawyer-lion.png";
+import lawyer from "@/assets/images/minified-lawyer-lion.png";
 /*
   potential good lines: 
   - Your Next Big Case Starts Here.
