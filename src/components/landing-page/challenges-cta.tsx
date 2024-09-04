@@ -11,10 +11,10 @@ export function ChallengesCTA() {
         </h2>
         <div className="mt-10 gap-x-6 lg:mt-0 lg:flex-shrink-0">
           <Link
-            className="rounded-md bg-foreground px-3.5 py-2.5 text-sm font-semibold text-background shadow-sm hover:bg-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-            href="/schedule-call"
+            className="rounded-md bg-foreground px-3.5 py-2.5 text-sm font-semibold text-background shadow-sm hover:bg-primary hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            href="#"
           >
-            Schedule Your Free Consultation
+            Take Our Free Assessment
             <span className="ml-1" aria-hidden="true">
               →
             </span>
