@@ -76,10 +76,7 @@ export default function RootLayout({
     <html lang="en">
       <CSPostHogProvider>
         <body
-          className={cn(
-            "min-h-screen bg-primary font-sans antialiased",
-            sora.variable
-          )}
+          className={cn("min-h-screen font-sans antialiased", sora.variable)}
         >
           <HeaderNav />
           <PostHogPageView />
