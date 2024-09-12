@@ -1,16 +1,13 @@
-// import { GoToLawAcademy } from "@/components/landing-page/go-to-law-academy";
-import { ChallengesCTA } from "@/components/landing-page/challenges-cta";
-import { Hero } from "@/components/landing-page/hero3";
-import { LawFirmChallenges } from "@/components/landing-page/law-firm-challenges";
-// import { ProblemStatement } from "@/components/landing-page/problem-statement";
+import { Hero } from "@/components/landing-page/hero";
+import { HeroCallToAction } from "@/components/landing-page/hero-cta";
+import { StatsHero } from "@/components/landing-page/stats-hero";
+
 export default function Home() {
   return (
-    <main>
+    <>
       <Hero />
-      <LawFirmChallenges />
-      <ChallengesCTA />
-      {/* <GoToLawAcademy /> */}
-      {/* <ProblemStatement /> */}
-    </main>
+      <StatsHero />
+      <HeroCallToAction />
+    </>
   );
 }

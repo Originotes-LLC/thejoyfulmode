@@ -40,10 +40,10 @@ NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName;
 
 const NavigationMenuItem = NavigationMenuPrimitive.Item;
 
-const oldStyles =
-  "group inline-flex h-9 w-max items-center justify-center px-4 py-2 text-sm font-medium transition-colors hover:bg-background focus:bg-accent focus:text-background focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-background data-[state=open]:bg-background/50";
+const modifiedShadUIStyles =
+  "group inline-flex h-9 w-max items-center justify-center px-4 py-2 text-sm font-medium transition-colors hover:bg-primary hover:text-foreground focus:bg-primary focus:text-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-primary data-[state=open]:bg-primary data-[state=open]:text-foreground";
 
-const navigationMenuTriggerStyle = cva(oldStyles);
+const navigationMenuTriggerStyle = cva(modifiedShadUIStyles);
 
 const NavigationMenuTrigger = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Trigger>,

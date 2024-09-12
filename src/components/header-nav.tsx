@@ -23,11 +23,12 @@ import { PhoneIcon, PlayCircleIcon } from "@heroicons/react/20/solid";
 
 import Image from "next/image";
 import Link from "next/link";
-import logo from "../assets/logo/tjm_logo_black_on_transparent.png";
+import logoDark from "../assets/logo/tjm_logo_black_on_transparent.png";
+import logoWhite from "../assets/logo/tjm_logo_white_on_transparent.png";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-const products = [
+const services = [
   {
     name: "Web Design & Development",
     description:
@@ -68,7 +69,7 @@ const callsToActionMobile = [
   { name: "Onboarding", href: "#", icon: Handshake },
 ];
 
-const company = [
+const navLinks = [
   {
     name: "Our Mission",
     href: "#",
@@ -103,12 +104,12 @@ export function HeaderNav() {
       <div className="flex flex-1">
         <Link href="/" className="-m-1.5 p-1.5">
           <span className="sr-only">The Joyful Mode</span>
-          <div className="relative size-16 md:size-20">
+          <div className="relative size-20 md:size-28">
             <Image
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               fill
               alt="the joyful mode logo"
-              src={logo}
+              src={logoWhite}
               className="size-full object-cover rounded-full"
             />
           </div>
@@ -118,7 +119,7 @@ export function HeaderNav() {
         <button
           type="button"
           onClick={() => setMobileMenuOpen(true)}
-          className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-foreground"
+          className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-background"
         >
           <span className="sr-only">Open main menu</span>
           <Bars3Icon aria-hidden="true" className="size-6" />
@@ -126,14 +127,17 @@ export function HeaderNav() {
       </div>
 
       <NavigationMenuList className="hidden lg:flex lg:gap-x-12">
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+        <NavigationMenuItem className="text-background">
+          <NavigationMenuTrigger>
+            <span className="text-base">Services</span>
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {products.map((item) => (
+            {/* Big screens */}
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              {services.map((item) => (
                 <li
                   key={item.name}
-                  className="group relative -mx-3 flex gap-6 rounded-lg p-3 text-sm leading-6 hover:bg-gray-50 sm:flex-col sm:p-6"
+                  className="group relative -mx-3 flex gap-6 rounded-lg p-3 text-base leading-6 hover:bg-gray-50 sm:flex-col sm:p-6"
                 >
                   <div className="flex size-11 flex-none items-center justify-center rounded-lg">
                     <item.icon
@@ -149,23 +153,23 @@ export function HeaderNav() {
                       {item.name}
                       <span className="absolute inset-0" />
                     </Link>
-                    <p className="mt-1 text-gray-600">{item.description}</p>
+                    <p className="mt-1 text-foreground">{item.description}</p>
                   </div>
                 </li>
               ))}
             </ul>
-            <div className="bg-foreground">
+            <div className="bg-background">
               <div className="mx-auto max-w-7xl">
                 <div className="grid grid-cols-3 divide-x divide-gray-900/5 border-x border-gray-900/5">
                   {callsToAction.map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}
-                      className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-background hover:bg-accent"
+                      className="group flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-foreground hover:bg-primary hover:text-foreground"
                     >
                       <item.icon
                         aria-hidden="true"
-                        className="size-5 flex-none text-background"
+                        className="size-5 flex-none text-foreground group-hover:text-foreground"
                       />
                       {item.name}
                     </Link>
@@ -175,23 +179,23 @@ export function HeaderNav() {
             </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        <NavigationMenuItem>
-          {company.map((item) => (
+        <NavigationMenuItem className="text-background">
+          {navLinks.map((item) => (
             <Link
               legacyBehavior
               passHref
               key={item.name}
               href={item.href}
-              className="text-sm font-semibold leading-6 p-0.5 text-foreground hover:text-accent hover:underline hover:decoration-1 hover:decoration-double"
+              className=""
             >
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                {item.name}
+                <span className="text-base">{item.name}</span>
               </NavigationMenuLink>
             </Link>
           ))}
         </NavigationMenuItem>
 
-        <NavigationMenuItem className="hidden lg:flex lg:flex-1 lg:justify-end">
+        <NavigationMenuItem className="hidden lg:flex lg:flex-1 lg:justify-end text-background">
           <Link
             legacyBehavior
             passHref
@@ -199,7 +203,8 @@ export function HeaderNav() {
             className="text-sm font-semibold leading-6 p-0.5 text-foreground hover:text-accent hover:underline hover:decoration-1 hover:decoration-double"
           >
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Client Portal <span aria-hidden="true">&rarr;</span>
+              <span className="text-base">Client Portal</span>{" "}
+              <span aria-hidden="true">&rarr;</span>
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
@@ -211,7 +216,7 @@ export function HeaderNav() {
         className="lg:hidden"
       >
         <div className="fixed inset-0 z-10" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-10 flex w-full flex-col justify-between overflow-y-auto bg-primary sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <DialogPanel className="fixed inset-y-0 right-0 z-10 flex w-full flex-col justify-between overflow-y-auto bg-background sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="p-6">
             <div className="flex items-center justify-between">
               <Link href="/" className="-m-1.5 p-1.5">
@@ -221,7 +226,7 @@ export function HeaderNav() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     fill
                     alt="the joyful mode logo"
-                    src={logo}
+                    src={logoDark}
                     className="size-full object-cover rounded-full"
                   />
                 </div>
@@ -239,10 +244,10 @@ export function HeaderNav() {
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
                   {/* small screens / mobile view */}
-                  {products.map((item) => (
+                  {services.map((item) => (
                     <div
                       key={item.name}
-                      className="group relative -mx-3 flex gap-6 rounded-lg p-3 text-sm leading-6 hover:bg-gray-50 sm:flex-col sm:p-6"
+                      className="group relative -mx-3 flex gap-6 rounded-lg p-3 text-base leading-6 hover:bg-gray-50 sm:flex-col sm:p-6"
                     >
                       <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg">
                         <item.icon
@@ -251,31 +256,29 @@ export function HeaderNav() {
                         />
                       </div>
                       <div>
-                        <a
+                        <Link
                           href={item.href}
-                          className="font-semibold text-gray-900"
+                          className="font-semibold text-foreground"
                         >
                           {item.name}
                           <span className="absolute inset-0" />
-                        </a>
-                        <p className="mt-1 text-neutral-600">
-                          {item.description}
-                        </p>
+                        </Link>
+                        <p className="mt-1 text-gray-600">{item.description}</p>
                       </div>
                     </div>
                   ))}
                 </div>
                 <div className="space-y-2 py-6">
-                  {company.map((item) => (
+                  {navLinks.map((item) => (
                     <Link
                       onClick={() => setMobileMenuOpen(false)}
                       key={item.name}
                       href={item.href}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-foreground hover:bg-gray-50"
                     >
                       {item.name}
 
-                      <p className="mt-0.5 text-foreground text-sm font-normal">
+                      <p className="mt-0.5 text-foreground text-base font-normal">
                         {item.description}
                       </p>
                     </Link>

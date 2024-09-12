@@ -1,92 +1,50 @@
-import { ArrowDownIcon, ArrowUpIcon } from "@heroicons/react/20/solid";
-import { ChartNoAxesCombined, Globe, UsersRound } from "lucide-react";
-
-const stats = [
-  {
-    id: 1,
-    name: "Client Conversions",
-    stat: "98%",
-    icon: Globe,
-    change: "111",
-    changeType: "increase",
-  },
-  {
-    id: 2,
-    name: "Bounce Rate",
-    stat: "25%",
-    icon: UsersRound,
-    change: "5",
-    changeType: "decrease",
-  },
-  {
-    id: 3,
-    name: "Marketing Campaign Reach",
-    stat: "2,560",
-    icon: ChartNoAxesCombined,
-    change: "15",
-    changeType: "increase",
-  },
-];
-
-function classNames(...classes: (string | boolean | undefined)[]) {
-  return classes.filter(Boolean).join(" ");
-}
+import { dmmono } from "@/app/fonts";
 
 export function StatsHero() {
   return (
-    <div>
-      <dl className="grid grid-cols-1">
-        {stats.map((item) => (
+    <div className="px-12 flex-col justify-start items-start inline-flex bg-foreground pt-32 overflow-hidden">
+      <div className="justify-start items-start gap-10 lg:gap-6 lg:inline-flex flex flex-col lg:flex-row">
+        <div className="pr-6 flex-col justify-start items-start inline-flex">
           <div
-            key={item.id}
-            className="relative overflow-hidden px-4 pt-5 sm:px-6 sm:pt-6"
+            className={`${dmmono.variable} font-mono self-stretch text-background text-[6rem] xl:text-[8rem] font-medium uppercase leading-[128px]`}
           >
-            <dt>
-              <div className="absolute rounded-md bg-background/80 p-2">
-                <item.icon
-                  aria-hidden="true"
-                  className="size-5 md:size-6 text-foreground"
-                />
-              </div>
-              <p className="ml-14 truncate text-sm font-medium text-foreground/80">
-                {item.name}
-              </p>
-            </dt>
-            <dd className="ml-14 flex items-baseline">
-              <p className="font-medium text-foreground text-sm">{item.stat}</p>
-              <p
-                className={classNames(
-                  item.changeType === "increase"
-                    ? "text-green-700"
-                    : "text-red-600",
-                  "ml-2 flex items-baseline text-xs font-semibold"
-                )}
-              >
-                {item.changeType === "increase" ? (
-                  <ArrowUpIcon
-                    aria-hidden="true"
-                    className="size-4 flex-shrink-0 self-center text-green-700"
-                  />
-                ) : (
-                  <ArrowDownIcon
-                    aria-hidden="true"
-                    className="size-4 flex-shrink-0 self-center text-red-500"
-                  />
-                )}
-
-                <span className="sr-only">
-                  {" "}
-                  {item.changeType === "increase"
-                    ? "Increased"
-                    : "Decreased"}{" "}
-                  by{" "}
-                </span>
-                {item.change}
-              </p>
-            </dd>
+            80%
           </div>
-        ))}
-      </dl>
+          <div className="self-stretch text-background text-xl font-normal leading-7">
+            Law firms rank SEO as their top client acquisition tool
+          </div>
+        </div>
+        <div className="pr-6 flex-col justify-start items-start inline-flex">
+          <div
+            className={`${dmmono.variable} self-stretch text-background text-[6rem] xl:text-[8rem] font-medium font-mono uppercase leading-[128px]`}
+          >
+            20%
+          </div>
+          <div className="self-stretch text-background text-xl font-normal leading-7">
+            Increase in organic visitors for law firms that boost their SEO
+          </div>
+        </div>
+        <div className="pr-6 flex-col justify-start items-start inline-flex">
+          <div
+            className={`${dmmono.variable} self-stretch text-background text-[6rem] xl:text-[8rem] font-medium font-mono uppercase leading-[128px]`}
+          >
+            84%
+          </div>
+          <div className="self-stretch text-background text-xl font-normal leading-7">
+            Law firms generate new leads through organic social media reach
+          </div>
+        </div>
+        <div className="pr-6 flex-col justify-start items-start inline-flex">
+          <div
+            className={`${dmmono.variable} self-stretch text-background text-[6rem] xl:text-[8rem] font-medium font-mono uppercase leading-[128px]`}
+          >
+            500%
+          </div>
+          <div className="self-stretch text-background text-xl font-normal leading-7">
+            Potential ROI for law firms investing in SEO within three years
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

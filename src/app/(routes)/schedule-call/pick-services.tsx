@@ -120,18 +120,18 @@ export function PickServices({
           state?.issues
             .filter((issue) => issue.path[0] === "seo")
             .map((issue) => issue.message)[0]
-            ? "text-base font-semibold leading-7 text-red-500"
-            : "text-base font-semibold leading-7 text-gray-900"
+            ? "text-lg font-semibold leading-7 text-background"
+            : "text-lg font-semibold leading-7 text-background"
         }
       >
         Services
-        <span className="text-red-500 font-medium -mr-0.5 ml-1">*</span>
+        <span className="text-background font-medium -mr-0.5 ml-1">*</span>
       </h2>
-      <p className="mt-1 text-sm leading-6 text-gray-600">
+      <p className="mt-1 text-base leading-6 text-background">
         Choose what you need. Let&rsquo;s make your competitors sweat.
       </p>
       {state && (
-        <p className="mt-2 text-xs text-red-600">
+        <p className="mt-2 text-xs text-background">
           {
             state.issues
               .filter((issue) => issue.path[0] === "seo")
@@ -157,27 +157,27 @@ export function PickServices({
                             name={service.fieldName}
                             className={
                               errors?.seo
-                                ? "size-4 rounded border-red-400 text-red-500"
-                                : "size-4 rounded border-foreground text-accent focus:ring-accent"
+                                ? "size-4 rounded border-background text-background"
+                                : "size-4 rounded text-accent focus:ring-accent border-background"
                             }
                             checked={field.value as CheckedState}
                             onCheckedChange={field.onChange}
                           />
                         </FormControl>
                       </div>
-                      <div className="text-sm leading-6">
+                      <div className="text-base leading-6">
                         <FormLabel
                           className={
                             errors?.seo
-                              ? "font-medium text-red-500"
-                              : "font-medium text-gray-900"
+                              ? "font-medium text-background text-base"
+                              : "font-medium text-background text-base"
                           }
                         >
                           {service.name}
                         </FormLabel>
                         <FormDescription
                           className={
-                            errors?.seo ? "text-red-500" : "text-gray-500"
+                            errors?.seo ? "text-background" : "text-background"
                           }
                         >
                           {service.description}
@@ -190,223 +190,10 @@ export function PickServices({
             ))}
           </div>
         </fieldset>
-        <p className="text-[0.8rem] font-medium text-destructive">
+        <p className="text-base font-semibold text-primary">
           {errors?.seo?.message}
         </p>
       </div>
     </div>
   );
 }
-// <FormField
-//   control={form.control}
-//   name="webDesignAndDevelopment"
-//   render={({ field }) => (
-//     <FormItem>
-//       <div className="relative flex gap-x-3">
-//         <div className="flex h-6 items-center">
-//           <FormControl>
-//             <Checkbox
-//               name="webDesignAndDevelopment"
-//               className={
-//                 errors?.seo
-//                   ? "size-4 rounded border-red-400 text-red-500"
-//                   : "size-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-600"
-//               }
-//               checked={field.value}
-//               onCheckedChange={field.onChange}
-//             />
-//           </FormControl>
-//         </div>
-//         <div className="text-sm leading-6">
-//           <FormLabel
-//             className={
-//               errors?.seo
-//                 ? "font-medium text-red-500"
-//                 : "font-medium text-gray-900"
-//             }
-//           >
-//             Web Design & Development
-//           </FormLabel>
-//           <FormDescription
-//             className={
-//               errors?.seo ? "text-red-500" : "text-gray-500"
-//             }
-//           >
-//             Your website is your digital storefront. Let&rsquo;s
-//             make it shine.
-//           </FormDescription>
-//         </div>
-//       </div>
-//     </FormItem>
-//   )}
-// />
-
-// <FormField
-//   control={form.control}
-//   name="seo"
-//   render={({ field }) => (
-//     <FormItem>
-//       <div className="relative flex gap-x-3">
-//         <div className="flex h-6 items-center">
-//           <FormControl>
-//             <Checkbox
-//               name="seo"
-//               className={
-//                 errors?.seo
-//                   ? "size-4 rounded border-red-400 text-red-500"
-//                   : "size-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-600"
-//               }
-//               checked={field.value}
-//               onCheckedChange={field.onChange}
-//             />
-//           </FormControl>
-//         </div>
-//         <div className="text-sm leading-6">
-//           <FormLabel
-//             className={
-//               errors?.seo
-//                 ? "font-medium text-red-500"
-//                 : "font-medium text-gray-900"
-//             }
-//           >
-//             SEO
-//           </FormLabel>
-//           <FormDescription
-//             className={
-//               errors?.seo ? "text-red-500" : "text-gray-500"
-//             }
-//           >
-//             Get found online. We&rsquo;ll help you climb the ranks.
-//           </FormDescription>
-//         </div>
-//       </div>
-//     </FormItem>
-//   )}
-// />
-// <FormField
-//   control={form.control}
-//   name="ppc"
-//   render={({ field }) => (
-//     <FormItem>
-//       <div className="relative flex gap-x-3">
-//         <div className="flex h-6 items-center">
-//           <FormControl>
-//             <Checkbox
-//               name="ppc"
-//               className={
-//                 errors?.seo
-//                   ? "size-4 rounded border-red-400 text-red-500"
-//                   : "size-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-600"
-//               }
-//               checked={field.value}
-//               onCheckedChange={field.onChange}
-//             />
-//           </FormControl>
-//         </div>
-//         <div className="text-sm leading-6">
-//           <FormLabel
-//             htmlFor="candidates"
-//             className={
-//               errors?.seo
-//                 ? "font-medium text-red-500"
-//                 : "font-medium text-gray-900"
-//             }
-//           >
-//             Pay-Per-Click (PPC)
-//           </FormLabel>
-//           <FormDescription
-//             className={
-//               errors?.seo ? "text-red-500" : "text-gray-500"
-//             }
-//           >
-//             Get in front of your audience with targeted ads.
-//           </FormDescription>
-//         </div>
-//       </div>
-//     </FormItem>
-//   )}
-// />
-// <FormField
-//   control={form.control}
-//   name="marketing"
-//   render={({ field }) => (
-//     <FormItem>
-//       <div className="relative flex gap-x-3">
-//         <div className="flex h-6 items-center">
-//           <FormControl>
-//             <Checkbox
-//               name="marketing"
-//               className={
-//                 errors?.seo
-//                   ? "size-4 rounded border-red-400 text-red-500"
-//                   : "size-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-600"
-//               }
-//               checked={field.value}
-//               onCheckedChange={field.onChange}
-//             />
-//           </FormControl>
-//         </div>
-//         <div className="text-sm leading-6">
-//           <FormLabel
-//             className={
-//               errors?.seo
-//                 ? "font-medium text-red-500"
-//                 : "font-medium text-gray-900"
-//             }
-//           >
-//             Marketing Strategies
-//           </FormLabel>
-//           <FormDescription
-//             className={
-//               errors?.seo ? "text-red-500" : "text-gray-500"
-//             }
-//           >
-//             Let&rsquo;s build a plan that works for you.
-//           </FormDescription>
-//         </div>
-//       </div>
-//     </FormItem>
-//   )}
-// />
-// <FormField
-//   control={form.control}
-//   name="service_not_listed"
-//   render={({ field }) => (
-//     <FormItem>
-//       <div className="relative flex gap-x-3">
-//         <div className="flex h-6 items-center">
-//           <FormControl>
-//             <Checkbox
-//               name="service_not_listed"
-//               className={
-//                 errors?.seo
-//                   ? "size-4 rounded border-red-400 text-red-500"
-//                   : "size-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-600"
-//               }
-//               checked={field.value}
-//               onCheckedChange={field.onChange}
-//             />
-//           </FormControl>
-//         </div>
-//         <div className="text-sm leading-6">
-//           <FormLabel
-//             className={
-//               errors?.seo
-//                 ? "font-medium text-red-500"
-//                 : "font-medium text-gray-900"
-//             }
-//           >
-//             Other
-//           </FormLabel>
-//           <FormDescription
-//             className={
-//               errors?.seo ? "text-red-500" : "text-gray-500"
-//             }
-//           >
-//             Write a short description in the message box below.
-//           </FormDescription>
-//         </div>
-//       </div>
-//     </FormItem>
-//   )}
-// />
