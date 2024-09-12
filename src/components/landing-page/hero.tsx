@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export function Hero() {
   return (
-    <div className='inline-flex flex-col items-start justify-start px-5 py-10 xl:p-12'>
+    <div className='mx-auto max-w-[1728px] flex-col items-start justify-start px-5 py-10 xl:p-12'>
       <div className='flex flex-col items-start justify-start gap-4 self-stretch'>
         <div className='flex flex-col items-start justify-start self-stretch'>
           <div className='self-stretch text-h1Small uppercase text-white xl:text-h1Large'>
