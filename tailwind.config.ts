@@ -11,6 +11,43 @@ const config = {
   ],
   prefix: "",
   theme: {
+    fontSize: {
+      h1Large: [
+        "192px",
+        {
+          lineHeight: "192px",
+          fontWeight: "800",
+        },
+      ],
+      h1Small: [
+        "3.052rem",
+        {
+          lineHeight: "55.68px",
+          fontWeight: "800",
+        },
+      ],
+      h2Large: [
+        "80px",
+        {
+          lineHeight: "80px",
+          fontWeight: "700",
+        },
+      ],
+      h2Small: [
+        "40px",
+        {
+          lineHeight: "40px",
+          fontWeight: "700",
+        },
+      ],
+      sm: "0.8rem",
+      base: "1rem",
+      xl: "1.25rem",
+      "2xl": "1.563rem",
+      "3xl": "1.953rem",
+      "4xl": "2.441rem",
+      "5xl": "3.052rem",
+    },
     container: {
       center: true,
       padding: "2rem",
@@ -21,6 +58,7 @@ const config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
+        mono: ["var(--font-mono)", ...fontFamily.mono],
       },
       colors: {
         border: "hsl(var(--border))",
