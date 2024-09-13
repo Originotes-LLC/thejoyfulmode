@@ -57,8 +57,8 @@ export const ControlledPhoneInput = (props: ControlledPhoneInputProps) => {
               type='text'
               className={
                 props.serverErrors
-                  ? 'block w-full border-0 px-3.5 py-2 text-base shadow-sm ring-2 ring-inset ring-background sm:text-sm sm:leading-6'
-                  : 'block w-full border-0 px-3.5 py-2 text-base text-background shadow-sm ring-1 ring-background focus:bg-background focus:text-foreground sm:text-sm sm:leading-6'
+                  ? 'block w-full border-0 px-3.5 py-2 text-base shadow-sm ring-2 ring-inset ring-background sm:text-base sm:leading-6'
+                  : 'block w-full border-0 px-3.5 py-2 text-base text-background shadow-sm ring-1 ring-background focus:bg-background focus:text-foreground sm:text-base sm:leading-6'
               }
               autoComplete='tel'
               placeholder='(555) 555-5555'
@@ -66,7 +66,7 @@ export const ControlledPhoneInput = (props: ControlledPhoneInputProps) => {
           </FormControl>
           <FormMessage className='text-base font-semibold text-primary' />
           {props.serverErrors && (
-            <p className='mt-2 text-sm text-background'>
+            <p className='mt-2 text-base text-background'>
               {props.serverErrors.message}
             </p>
           )}
