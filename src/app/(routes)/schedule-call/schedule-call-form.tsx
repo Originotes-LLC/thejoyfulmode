@@ -169,8 +169,8 @@ export function ScheduleCallForm() {
                                     (issue) => issue.path[0] === 'firstName'
                                   )
                                   .map((issue) => issue.message)[0]
-                                  ? 'block w-full border-0 px-3.5 py-2 text-base text-background shadow-sm ring-1 ring-inset ring-primary focus:bg-background focus:text-foreground sm:text-sm sm:leading-6'
-                                  : 'block w-full border-0 px-3.5 py-2 text-base text-background shadow-sm ring-1 ring-background focus:bg-background focus:text-foreground sm:text-sm sm:leading-6'
+                                  ? 'block w-full border-0 px-3.5 py-2 text-base text-background shadow-sm ring-1 ring-inset ring-primary focus:bg-background focus:text-foreground sm:text-base sm:leading-6'
+                                  : 'block w-full border-0 px-3.5 py-2 text-base text-background shadow-sm ring-1 ring-background focus:bg-background focus:text-foreground sm:text-base sm:leading-6'
                               }
                               autoComplete='given-name'
                               placeholder='John'
@@ -221,8 +221,8 @@ export function ScheduleCallForm() {
                                     (issue) => issue.path[0] === 'lastName'
                                   )
                                   .map((issue) => issue.message)[0]
-                                  ? 'block w-full border-0 px-3.5 py-2 text-base shadow-sm ring-1 ring-inset ring-primary focus:bg-background sm:text-sm sm:leading-6'
-                                  : 'block w-full border-0 px-3.5 py-2 text-base text-background shadow-sm ring-1 ring-background focus:bg-background focus:text-foreground sm:text-sm sm:leading-6'
+                                  ? 'block w-full border-0 px-3.5 py-2 text-base shadow-sm ring-1 ring-inset ring-primary focus:bg-background sm:text-base sm:leading-6'
+                                  : 'block w-full border-0 px-3.5 py-2 text-base text-background shadow-sm ring-1 ring-background focus:bg-background focus:text-foreground sm:text-base sm:leading-6'
                               }
                               autoComplete='family-name'
                               placeholder='Doe'
@@ -275,8 +275,8 @@ export function ScheduleCallForm() {
                                       (issue) => issue.path[0] === 'lastName'
                                     )
                                     .map((issue) => issue.message)[0]
-                                    ? 'block w-full border-0 px-3.5 py-2 text-base shadow-sm ring-1 ring-inset ring-primary focus:bg-background sm:text-sm sm:leading-6'
-                                    : 'block w-full border-0 px-3.5 py-2 text-base text-background shadow-sm ring-1 ring-background focus:bg-background focus:text-foreground sm:text-sm sm:leading-6'
+                                    ? 'block w-full border-0 px-3.5 py-2 text-base shadow-sm ring-1 ring-inset ring-primary focus:bg-background sm:text-base sm:leading-6'
+                                    : 'block w-full border-0 px-3.5 py-2 text-base text-background shadow-sm ring-1 ring-background focus:bg-background focus:text-foreground sm:text-base sm:leading-6'
                                 }
                                 autoComplete='email'
                                 placeholder='your-work-email@example.com'
@@ -340,8 +340,8 @@ export function ScheduleCallForm() {
                                         issue.path[0] === 'businessName'
                                     )
                                     .map((issue) => issue.message)[0]
-                                    ? 'block w-full border-0 px-3.5 py-2 text-base shadow-sm ring-1 ring-inset ring-primary focus:bg-background sm:text-sm sm:leading-6'
-                                    : 'block w-full border-0 px-3.5 py-2 text-base text-background shadow-sm ring-1 ring-background focus:bg-background focus:text-foreground sm:text-sm sm:leading-6'
+                                    ? 'block w-full border-0 px-3.5 py-2 text-base shadow-sm ring-1 ring-inset ring-primary focus:bg-background sm:text-base sm:leading-6'
+                                    : 'block w-full border-0 px-3.5 py-2 text-base text-background shadow-sm ring-1 ring-background focus:bg-background focus:text-foreground sm:text-base sm:leading-6'
                                 }
                                 placeholder='The Best Law Firm'
                                 {...field}
@@ -373,7 +373,7 @@ export function ScheduleCallForm() {
                       />
                       <p
                         id='areaOfPractice'
-                        className='mt-2 text-sm text-background'
+                        className='mt-2 text-base font-semibold text-primary'
                       >
                         {errors.areaOfPractice?.message ||
                           state?.issues

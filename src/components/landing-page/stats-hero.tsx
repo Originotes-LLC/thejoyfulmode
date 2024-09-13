@@ -1,46 +1,46 @@
-import { dmmono } from "@/app/fonts";
+import { dmmono } from '@/app/fonts';
 
 export function StatsHero() {
   return (
-    <div className="px-12 flex-col justify-start items-start inline-flex bg-foreground pt-32 overflow-hidden">
-      <div className="justify-start items-start gap-10 lg:gap-6 lg:inline-flex flex flex-col lg:flex-row">
-        <div className="pr-6 flex-col justify-start items-start inline-flex">
+    <div className='inline-flex w-full flex-col items-start justify-start overflow-hidden bg-foreground px-12 pt-32'>
+      <div className='flex flex-col items-start justify-start gap-10 lg:inline-flex lg:flex-row lg:gap-6'>
+        <div className='inline-flex flex-col items-start justify-start pr-6'>
           <div
-            className={`${dmmono.variable} font-mono self-stretch text-background text-[6rem] xl:text-[8rem] font-medium uppercase leading-[128px]`}
+            className={`${dmmono.variable} self-stretch font-mono text-[6rem] font-medium uppercase leading-[128px] text-background xl:text-[8rem]`}
           >
             80%
           </div>
-          <div className="self-stretch text-background text-xl font-normal leading-7">
+          <div className='self-stretch text-xl font-normal leading-7 text-background'>
             Law firms rank SEO as their top client acquisition tool
           </div>
         </div>
-        <div className="pr-6 flex-col justify-start items-start inline-flex">
+        <div className='inline-flex flex-col items-start justify-start pr-6'>
           <div
-            className={`${dmmono.variable} self-stretch text-background text-[6rem] xl:text-[8rem] font-medium font-mono uppercase leading-[128px]`}
+            className={`${dmmono.variable} self-stretch font-mono text-[6rem] font-medium uppercase leading-[128px] text-background xl:text-[8rem]`}
           >
             20%
           </div>
-          <div className="self-stretch text-background text-xl font-normal leading-7">
+          <div className='self-stretch text-xl font-normal leading-7 text-background'>
             Increase in organic visitors for law firms that boost their SEO
           </div>
         </div>
-        <div className="pr-6 flex-col justify-start items-start inline-flex">
+        <div className='inline-flex flex-col items-start justify-start pr-6'>
           <div
-            className={`${dmmono.variable} self-stretch text-background text-[6rem] xl:text-[8rem] font-medium font-mono uppercase leading-[128px]`}
+            className={`${dmmono.variable} self-stretch font-mono text-[6rem] font-medium uppercase leading-[128px] text-background xl:text-[8rem]`}
           >
             84%
           </div>
-          <div className="self-stretch text-background text-xl font-normal leading-7">
+          <div className='self-stretch text-xl font-normal leading-7 text-background'>
             Law firms generate new leads through organic social media reach
           </div>
         </div>
-        <div className="pr-6 flex-col justify-start items-start inline-flex">
+        <div className='inline-flex flex-col items-start justify-start pr-6'>
           <div
-            className={`${dmmono.variable} self-stretch text-background text-[6rem] xl:text-[8rem] font-medium font-mono uppercase leading-[128px]`}
+            className={`${dmmono.variable} self-stretch font-mono text-[6rem] font-medium uppercase leading-[128px] text-background xl:text-[8rem]`}
           >
             500%
           </div>
-          <div className="self-stretch text-background text-xl font-normal leading-7">
+          <div className='self-stretch text-xl font-normal leading-7 text-background'>
             Potential ROI for law firms investing in SEO within three years
           </div>
         </div>

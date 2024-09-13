@@ -108,7 +108,7 @@ export function SelectIndustry({
             : 'block text-base font-medium leading-6 text-background'
         }
       >
-        Wha&rsquo;s your main practice area?
+        What&rsquo;s your main practice area?
         <span className='-mr-0.5 ml-1 font-medium text-background'>*</span>
       </Label>
       <div className='relative mt-2'>
@@ -118,8 +118,8 @@ export function SelectIndustry({
             state?.issues
               .filter((issue) => issue.path[0] === 'lastName')
               .map((issue) => issue.message)[0]
-              ? 'w-full border-0 py-1.5 pl-3 pr-10 shadow-sm ring-1 ring-inset ring-primary sm:text-sm sm:leading-6'
-              : 'w-full border-0 bg-transparent py-1.5 pl-3 pr-10 text-background placeholder-background shadow-sm ring-1 ring-background data-[focus]:bg-background data-[focus]:text-foreground sm:text-sm sm:leading-6'
+              ? 'w-full border-0 py-1.5 pl-3 pr-10 shadow-sm ring-1 ring-inset ring-primary sm:text-base sm:leading-6'
+              : 'w-full border-0 bg-transparent py-1.5 pl-3 pr-10 text-background placeholder-background shadow-sm ring-1 ring-background data-[focus]:bg-background data-[focus]:text-foreground sm:text-base sm:leading-6'
           }
           onChange={(event) => setQuery(event.target.value)}
           onBlur={() => setQuery('')}
@@ -134,7 +134,7 @@ export function SelectIndustry({
         </ComboboxButton>
 
         {filteredPractice.length > 0 && (
-          <ComboboxOptions className='absolute z-10 mt-1 max-h-60 w-full overflow-auto bg-white py-1 text-base shadow-lg ring-1 ring-background focus:outline-none sm:text-sm'>
+          <ComboboxOptions className='absolute z-10 mt-1 max-h-60 w-full overflow-auto bg-white py-1 text-base shadow-lg ring-1 ring-background focus:outline-none sm:text-base'>
             {filteredPractice.map((practice) => (
               <ComboboxOption
                 key={practice.id}
