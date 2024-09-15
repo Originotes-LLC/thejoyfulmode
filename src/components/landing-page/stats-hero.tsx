@@ -1,5 +1,5 @@
+import { AnimatedNumber } from '@/components/animated-number';
 import { dmmono } from '@/app/fonts';
-
 export function StatsHero() {
   return (
     <div className='inline-flex w-full flex-col items-start justify-start overflow-hidden bg-foreground px-12 pt-32'>
@@ -8,7 +8,7 @@ export function StatsHero() {
           <div
             className={`${dmmono.variable} self-stretch font-mono text-[6rem] font-medium uppercase leading-[128px] text-background xl:text-[8rem]`}
           >
-            80%
+            <AnimatedNumber start={50} end={80} />%
           </div>
           <div className='self-stretch text-xl font-normal leading-7 text-background'>
             Law firms rank SEO as their top client acquisition tool
@@ -18,7 +18,7 @@ export function StatsHero() {
           <div
             className={`${dmmono.variable} self-stretch font-mono text-[6rem] font-medium uppercase leading-[128px] text-background xl:text-[8rem]`}
           >
-            20%
+            <AnimatedNumber start={0} end={20} />%
           </div>
           <div className='self-stretch text-xl font-normal leading-7 text-background'>
             Increase in organic visitors for law firms that boost their SEO
@@ -28,7 +28,7 @@ export function StatsHero() {
           <div
             className={`${dmmono.variable} self-stretch font-mono text-[6rem] font-medium uppercase leading-[128px] text-background xl:text-[8rem]`}
           >
-            84%
+            <AnimatedNumber start={24} end={84} />%
           </div>
           <div className='self-stretch text-xl font-normal leading-7 text-background'>
             Law firms generate new leads through organic social media reach
@@ -38,7 +38,7 @@ export function StatsHero() {
           <div
             className={`${dmmono.variable} self-stretch font-mono text-[6rem] font-medium uppercase leading-[128px] text-background xl:text-[8rem]`}
           >
-            500%
+            <AnimatedNumber start={100} end={500} />%
           </div>
           <div className='self-stretch text-xl font-normal leading-7 text-background'>
             Potential ROI for law firms investing in SEO within three years
